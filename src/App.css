@@ -13,7 +13,8 @@
     margin-left: 50px;
     letter-spacing: 3px;
     font-weight: lighter;
-    text-decoration: overline rgb(156, 157, 205) solid;
+    border-bottom: 1px solid rgb(156, 157, 205);
+    width: 23%;
 }
 
 .title-ps{
@@ -58,8 +59,8 @@
 
 .track-card-image{
     width: 150px;
+    border-radius: 10px;
     border: 2px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 4px 4px 4px 0 rgba(142, 143, 204, 0.235);
 }
 
 .track-card-image:hover{

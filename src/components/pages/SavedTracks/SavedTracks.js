@@ -48,13 +48,13 @@ const SavedTracks = () => {
       <div className='btn-div'>
         {visibleTracks < totalSavedTracks && (
           <button onClick={handleShowMore}>
-            Mostrar más <IoMdArrowDropdown />
+            See more <IoMdArrowDropdown />
           </button>
         )}
 
         {visibleTracks > 5 && (
           <button onClick={handleShowLess}>
-            Mostrar menos <IoMdArrowDropup />
+            See less <IoMdArrowDropup />
           </button>
         )}
       </div>

@@ -26,16 +26,15 @@ const Home = () => {
 
     return (
       <div className='home'>
-        <h1 className='title'>Top popular songs</h1>
+        <h1 className='title'>Top Tracks</h1>
 
         <div className='btn-div'>
-          {/* botones para mostrar más o menos elementos */}
           {visibleTracks < allTracks.length && (
             <button onClick={handleShowMore}>See more <IoMdArrowDropdown className='icon' /></button>
           )}
 
           {visibleTracks > 5 && (
-            <button onClick={handleShowLess}>Show less <IoMdArrowDropup className='icon' /></button>
+            <button onClick={handleShowLess}>See less <IoMdArrowDropup className='icon' /></button>
           )}
         </div>
 
