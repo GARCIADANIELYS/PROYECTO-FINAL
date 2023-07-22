@@ -107,8 +107,7 @@ function PlaylistDetails({ selectedPlaylist }) {
   if (playlist) {
     return (
       <>
-        <div className="playlist-details">
-          <div className="header-playlist">
+        <div className="header-playlist">
             {playlist.images[0] ? (
               <img src={playlist.images[0].url} alt={playlist.name} />
             ) : (
@@ -156,7 +155,7 @@ function PlaylistDetails({ selectedPlaylist }) {
               handleUpdateSong={handleUpdateSong}
             />
           </div>
-        </div>
+        
       </>
     );
   }

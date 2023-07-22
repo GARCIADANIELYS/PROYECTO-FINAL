@@ -12,6 +12,7 @@ import TrackDetail from "./components/pages/TrackDetail/TrackDetail";
 import SavedTracks from "./components/pages/SavedTracks/SavedTracks";
 import Playlists from "./components/pages/Playlist/Playlists";
 import GeneralSearch from "./components/pages/Searcher/GeneralSearch";
+import AuthRouthe from "./components/AuthRouth/AuthRouthe";
 
 function App() {
   const [token, setToken] = useState(
@@ -29,11 +30,11 @@ function App() {
           <BrowserRouter>
             <Header />
             <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/track/:trackId" element={<TrackDetail />} />
+              <Route path="/"  element={<AuthRouthe token={token} component={<Home/>}/>} />
+              <Route path="/track/:trackId" element={ <AuthRouthe token={token} Component={<TrackDetail />}/>} />
               <Route path="/login" element={<Login />} />
-              <Route path="/artists" element={<Artists />} />
-              <Route path="/playlists" element={<Playlists />} />
+              <Route path="/artists" element={<AuthRouthe token={token} component={<Artists/>}/>} />
+              <Route path="/playlists" element={<AuthRouthe token={token} component={<Playlists/>}/>} />
               <Route path="/artists/:id" element={<Details />} />
               <Route path="/savedtracks" element={<SavedTracks />} />
               <Route path="/search" element={<GeneralSearch />} />
