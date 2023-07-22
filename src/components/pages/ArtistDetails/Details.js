@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { ApiContext } from "../../../services/Api";
 import "./ArtistDetails.css";
 
@@ -50,7 +50,9 @@ const Details = () => {
         <div className="container-albums-artist-data">
           {artistAlbums &&
             artistAlbums.map((album) => (
+            
               <div className="albums-artists-conainer" key={album.id}>
+              <Link to={`/album/${album.id}`}>
                 <img
                   className="img-album-artist"
                   src={album.images[0].url}
@@ -60,7 +62,9 @@ const Details = () => {
                   <p className="album-name">{album.name}</p>
                   <p className="album-tracks-number"> {album.total_tracks} Songs</p>
                 </div>
+                </Link>
               </div>
+             
             ))}
         </div>
       </div>
