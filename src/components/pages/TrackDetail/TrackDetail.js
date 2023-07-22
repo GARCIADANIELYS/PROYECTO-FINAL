@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import './TrackDetails.css';
+import '../../../App.css';
 import { TbPlayerTrackNext } from 'react-icons/tb';
 import { AiOutlineFire } from 'react-icons/ai';
 import { Si1001Tracklists } from 'react-icons/si';

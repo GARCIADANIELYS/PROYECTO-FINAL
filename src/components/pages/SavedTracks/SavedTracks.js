@@ -1,6 +1,5 @@
 import './SavedTracks.css';
 import React, { useState, useEffect, useContext } from 'react';
-import { AiOutlineHeart } from 'react-icons/ai';
 import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
 import { ApiContext } from '../../../services/Api';
 import { Link } from 'react-router-dom';
@@ -43,10 +42,10 @@ const SavedTracks = () => {
 
   return (
     <div>
-      <h1 className='savedtracks-title'>
-        Saved Tracks <AiOutlineHeart className='icon-heart' />
+      <h1 className='title'>
+        Saved Tracks
       </h1>
-      <div className='btn-saved-div'>
+      <div className='btn-div'>
         {visibleTracks < totalSavedTracks && (
           <button onClick={handleShowMore}>
             Mostrar más <IoMdArrowDropdown />
@@ -60,13 +59,13 @@ const SavedTracks = () => {
         )}
       </div>
 
-      <div className='saved-tracks-container'>
+      <div className='tracks-container'>
         {savedTracks?.slice(0, visibleTracks).map((track) => (
-          <div className='saved-track-card' key={track.track.id}>
-            <h3 className='saved-trackname'>{track.track.name}</h3>
+          <div className='track-card' key={track.track.id}>
+            <h3>{track.track.name}</h3>
             <Link to={`/track/${track.track.id}`}>
               <img
-                className='saved-track-img'
+                className='track-card-image'
                 src={track.track.album.images[ 0 ].url}
                 alt={track.track.name}
               />

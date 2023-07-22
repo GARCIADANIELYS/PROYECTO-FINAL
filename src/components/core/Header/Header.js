@@ -17,7 +17,7 @@ const Header = () => {
         <li>
           <Link to="/playlists">Playlists</Link>
         </li>
-       
+    
       </ul>
     </div>
   );
