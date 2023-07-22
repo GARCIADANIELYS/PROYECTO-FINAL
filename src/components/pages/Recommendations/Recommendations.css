@@ -1,4 +1,4 @@
-.icon-disco{
+/* .icon-disco{
     height: 25px;
 }
 
@@ -48,4 +48,11 @@
     display: flex;
     justify-content: space-around;
     color: yellowgreen;
+} */
+
+.genres-ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    color: rgb(156, 157, 205);
 }

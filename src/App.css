@@ -10,9 +10,22 @@
 }
 
 .title{
+    margin-left: 50px;
     letter-spacing: 3px;
     font-weight: lighter;
     text-decoration: overline rgb(156, 157, 205) solid;
+}
+
+.title-ps{
+    font-weight: lighter;
+    font-size: 16px;
+    margin-left: 50px;
+}
+
+.tracks-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .track-card{
@@ -29,12 +42,6 @@
     width: 150px;
 }
 
-.tracks-container{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
 .track-card h3,
 .track-card h4 {
     margin: 2px;
@@ -46,6 +53,7 @@
     border-radius: 20px;
     border: none;
     padding: 2px 7px;
+    margin-left: 50px;
 }
 
 .track-card-image{

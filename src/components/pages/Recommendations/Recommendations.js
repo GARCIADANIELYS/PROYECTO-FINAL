@@ -16,23 +16,23 @@ const Recommendations = () => {
   if (recApiResponse && recApiResponse.tracks && recApiResponse.seeds) {
 
     return (
-      <div className='recommendations'>
-        <h1 className='recommendations-title'>
+      <div>
+        <h1 className='title'>
           Specially For You</h1>
 
-        <h5 className='genres-ul-title'>*Basado en tus géneros más escuchados</h5>
+        <h5 className='title-ps'>*based on your preferences</h5>
         <ul className='genres-ul'>
           {seeds.map((seed) => (
             <li key={seed.id}>{seed.id}</li>
           ))}
         </ul>
-        <div className='rec-tracks-container'>
+        <div className='tracks-container'>
           {tracks.map((track) => (
-            <div className='rec-track-card' key={track.id}>
-              <h3 className='rec-trackname'>{track.name}</h3>
+            <div className='track-card' key={track.id}>
+              <h3>{track.name}</h3>
               <Link to={`/track/${track.id}`}>
                 <img
-                  className='rec-track-img'
+                  className='track-card-image'
                   src={track?.album.images[ 0 ].url}
                   alt={track.name}
                 />
