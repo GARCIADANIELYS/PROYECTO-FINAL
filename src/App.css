@@ -59,11 +59,12 @@
 .track-card-image{
     width: 150px;
     border: 2px solid rgba(255, 255, 255, 0.2);
-
+    box-shadow: 4px 4px 4px 0 rgba(142, 143, 204, 0.235);
 }
 
 .track-card-image:hover{
     border-radius: 50px;
     border: 2px rgb(112,114,207) solid;
     transition-duration: 0.6s;
+    box-shadow: none;
 }

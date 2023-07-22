@@ -65,7 +65,8 @@ const TrackDetail = () => {
             </div>
 
             <div>
-                <p><Link className='artists-redirecto-link' to="/artists">Descubre otros artistas</Link></p>
+                <p><Link className='artists-redirecto-link' to="/artists">discover new artists</Link></p>
+                <p><Link className='artists-redirecto-link' to="/search">discover new tracks</Link></p>
             </div>
         </div>
     )
