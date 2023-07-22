@@ -12,6 +12,7 @@ import TrackDetail from "./components/pages/TrackDetail/TrackDetail";
 import SavedTracks from "./components/pages/SavedTracks/SavedTracks";
 import Playlists from "./components/pages/Playlist/Playlists";
 import GeneralSearch from "./components/pages/Searcher/GeneralSearch";
+import User from "./components/core/User/User";
 
 function App() {
   const [token, setToken] = useState(
@@ -37,6 +38,7 @@ function App() {
               <Route path="/artists/:id" element={<Details />} />
               <Route path="/savedtracks" element={<SavedTracks />} />
               <Route path="/search" element={<GeneralSearch />} />
+              <Route path="/user" element={<User />} />
             </Routes>
 
             <Footer />

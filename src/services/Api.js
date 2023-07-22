@@ -11,7 +11,6 @@ export const ApiContextProvider = ({ children }) => {
 
 
   const search_URL = `https://api.spotify.com/v1/search?q=${search}&type=${type}`;
-  const profile_URL = `https://api.spotify.com/v1/me`;
  
   const access_token = window.localStorage.access_token
 
@@ -209,6 +208,39 @@ useEffect(() => {
   }, [recEndpoint]);
 
 
+  // petición API para obtener datos del User's profile
+  const [ profileApiResponse, setProfileApiResponse ] = useState([]);
+  const profile_URL = `https://api.spotify.com/v1/me`;
+  const [ profileEndpoint, setProfileEndpoint ] = useState("");
+
+  useEffect(() => {
+    setProfileEndpoint(profile_URL);
+  }, [profile_URL]);
+
+  useEffect(() => {
+    const fetchProfileData = async () => {
+      try {
+        let authParams = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + window.localStorage.access_token,
+          },
+        };
+        
+        const response = await fetch(profileEndpoint, authParams);
+        const data = await response.json();
+
+        setProfileApiResponse(data);
+        console.log("profile API response", data);
+      } catch (error) {
+        console.log("ERROR en API RESPONSE", error);
+      }
+    }
+    fetchProfileData();
+  }, [profileEndpoint]);
+
+
   return (
     <ApiContext.Provider
       value={{
@@ -236,6 +268,8 @@ useEffect(() => {
         recEndpoint,
         setRecEndpoint,
         rec_URL,
+        profileApiResponse,
+        profileEndpoint,
       }}>
       {children}
     </ApiContext.Provider>
