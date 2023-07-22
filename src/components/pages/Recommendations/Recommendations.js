@@ -27,7 +27,7 @@ const Recommendations = () => {
     return (
       <div>
         <h1 className='title'>
-          Made For You
+          Specially For You
         </h1>
 
         <h5 className='title-ps'>*based on your preferences</h5>
