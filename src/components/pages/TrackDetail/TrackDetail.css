@@ -1,4 +1,4 @@
-.track-details-container{
+/* .track-details-container{
     background-color: rgb(0, 0, 0);
     color: white;
     display: flex;
@@ -8,13 +8,13 @@
     padding: 60px 0px 100px 0px;
 }
 
-.track-details-img{
+.track-details-image{
     width: 400px;
     border: rgb(112,114,207) 2px solid;
     border-radius: 100px 0px 100px 0px;
 }
 
-.track-details-img:hover{
+.track-details-image:hover{
     border-radius: 100px 100px 100px 100px;
     border: white 2px solid;
     transition-duration: 1s;
@@ -44,7 +44,7 @@
     font-size: large;
 }
 
-.track-details-img-container{
+.track-details-image-container{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -64,4 +64,4 @@
     text-align: center;
     border-radius: 5px;
     width: 250px;
-}
+} */
