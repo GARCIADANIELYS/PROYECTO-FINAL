@@ -3,6 +3,7 @@ import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import './TrackDetails.css';
 import '../../../App.css';
+import {SpinnerCircular} from 'react-spinners';
 import { TbPlayerTrackNext } from 'react-icons/tb';
 import { AiOutlineFire } from 'react-icons/ai';
 import { Si1001Tracklists } from 'react-icons/si';
@@ -34,13 +35,8 @@ const TrackDetail = () => {
         fetchData();
     }, [ trackId ]);
 
-    if (!trackDetails) {
-        return (
-            <div>
-                <p>cargando detalles</p>
-            </div>
-        )
-    }
+    if (!trackDetails) return null;
+
 
     return (
         <div className='track-details-container'>

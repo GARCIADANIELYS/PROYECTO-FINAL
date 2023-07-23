@@ -12,15 +12,42 @@
 .title{
     margin-left: 50px;
     letter-spacing: 3px;
-    font-weight: lighter;
-    border-bottom: 1px solid rgb(156, 157, 205);
+    font-weight: 300;
+    border-bottom: 1px solid rgba(147, 151, 208, 0.885);
     width: 23%;
 }
 
-.title-ps{
+.title-and-button-div{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.btn-div button{
+    background-color: black;
+    right: auto;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    padding: 2px 7px;
+    margin-right: 50px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.title-preferences{
     font-weight: lighter;
     font-size: 16px;
-    margin-left: 50px;
+    padding-left: 50px;
+    margin: 0;
+}
+
+.genres-ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    color: rgb(156, 157, 205);
+    margin: 5px 0px;
 }
 
 .tracks-container{
@@ -43,21 +70,19 @@
     width: 150px;
 }
 
-.track-card h3,
-.track-card h4 {
-    margin: 2px;
+p.track-name{
+    font-size: small;
+    font-weight: 600;
 }
 
-.btn-div button{
-    background-color: rgb(112,114,207);
-    color: black;
-    border-radius: 20px;
-    border: none;
-    padding: 2px 7px;
-    margin-left: 50px;
+p.track-artist-name{
+    font-size: small;
+    font-weight: 300;
+    margin: 0;
 }
 
 .track-card-image{
+    margin: 3px 0px;
     width: 150px;
     border-radius: 10px;
     border: 2px solid rgba(255, 255, 255, 0.2);
@@ -69,3 +94,4 @@
     transition-duration: 0.6s;
     box-shadow: none;
 }
+

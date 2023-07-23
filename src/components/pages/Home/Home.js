@@ -1,4 +1,3 @@
-import './Home.css';
 import '../../../App.css';
 import React, { useState } from 'react';
 import { useContext } from 'react';
@@ -26,25 +25,26 @@ const Home = () => {
 
     return (
       <div className='home'>
-        <h1 className='title'>Top Tracks</h1>
 
-        <div className='btn-div'>
+      <div className='title-and-button-div'>
+      <h1 className='title'>Top Tracks</h1>
+      <div className='btn-div'>
           {visibleTracks < allTracks.length && (
-            <button onClick={handleShowMore}>See more <IoMdArrowDropdown className='icon' /></button>
+            <button onClick={handleShowMore}>See More <IoMdArrowDropdown className='icon' /></button>
           )}
 
           {visibleTracks > 5 && (
-            <button onClick={handleShowLess}>See less <IoMdArrowDropup className='icon' /></button>
+            <button onClick={handleShowLess}>See Less <IoMdArrowDropup className='icon' /></button>
           )}
         </div>
+      </div>
 
         <div className='tracks-container'>
 
           {allTracks.slice(0, visibleTracks).map((track) => (
             <div className='track-card' key={track.id}>
 
-              {track.name && <h3>{track.name}</h3>}
-
+            {track.name && <p className='track-name'>{track.name}</p>}
 
               {track.album && track.album.images && track.album.images.length > 0 && (
                 <Link to={`/track/${track.id}`}>
@@ -57,7 +57,7 @@ const Home = () => {
               )}
 
               {track.artists && track.artists.length > 0 && (
-                <h4>{track.artists[ 0 ].name}</h4>
+                <p className='track-artist-name'>{track.artists[ 0 ].name}</p>
               )}
 
             </div>

@@ -1,4 +1,3 @@
-import './SavedTracks.css';
 import React, { useState, useEffect, useContext } from 'react';
 import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
 import { ApiContext } from '../../../services/Api';
@@ -42,27 +41,30 @@ const SavedTracks = () => {
 
   return (
     <div>
-      <h1 className='title'>
-        Saved Tracks
-      </h1>
-      <div className='btn-div'>
-        {visibleTracks < totalSavedTracks && (
-          <button onClick={handleShowMore}>
-            See more <IoMdArrowDropdown />
-          </button>
-        )}
+      <div className='title-and-button-div'>
+        <h1 className='title'>
+          Saved Tracks
+        </h1>
+        <div className='btn-div'>
+          {visibleTracks < totalSavedTracks && (
+            <button onClick={handleShowMore}>
+              See more <IoMdArrowDropdown />
+            </button>
+          )}
 
-        {visibleTracks > 5 && (
-          <button onClick={handleShowLess}>
-            See less <IoMdArrowDropup />
-          </button>
-        )}
+          {visibleTracks > 5 && (
+            <button onClick={handleShowLess}>
+              See less <IoMdArrowDropup />
+            </button>
+          )}
+        </div>
       </div>
+
 
       <div className='tracks-container'>
         {savedTracks?.slice(0, visibleTracks).map((track) => (
           <div className='track-card' key={track.track.id}>
-            <h3>{track.track.name}</h3>
+            <p className='track-name'>{track.track.name}</p>
             <Link to={`/track/${track.track.id}`}>
               <img
                 className='track-card-image'
@@ -70,7 +72,7 @@ const SavedTracks = () => {
                 alt={track.track.name}
               />
             </Link>
-            <h4>{track.track.artists[ 0 ].name}</h4>
+            <p className='track-artist-name'>{track.track.artists[ 0 ].name}</p>
           </div>
         ))}
       </div>
