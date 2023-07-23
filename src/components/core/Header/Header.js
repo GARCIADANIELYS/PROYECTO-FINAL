@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./Header.css";
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [ isMenuOpen, setIsMenuOpen ] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -49,6 +49,10 @@ const Header = () => {
 
           <li className="pages">
             <Link to="/login">Login</Link>
+          </li>
+
+          <li>
+            <Link to="/user">User</Link>
           </li>
         </div>
       </ul>

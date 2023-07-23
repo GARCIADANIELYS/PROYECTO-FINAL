@@ -14,6 +14,8 @@ import Playlists from "./components/pages/Playlist/Playlists";
 import GeneralSearch from "./components/pages/Searcher/GeneralSearch";
 import AlbumsDetails from "./components/pages/AlbumDetails/AlbumsDetails";
 import './App.css'
+import User from "./components/core/User/User";
+
 function App() {
   const [token, setToken] = useState(
     window.localStorage.access_token ? window.localStorage.access_token : null
@@ -26,6 +28,7 @@ function App() {
     <>
       <RefreshTokenContext.Provider value={{ refresh, setRefresh }}>
         <TokenContext.Provider value={{ token, setToken }}>
+<<<<<<< HEAD
           <div className="container-master">
             <BrowserRouter>
               <Header />
@@ -41,6 +44,21 @@ function App() {
                 <Route path="/savedtracks" element={<SavedTracks />} />
                 <Route path="/search" element={<GeneralSearch />} />
               </Routes>
+=======
+          <BrowserRouter>
+            <Header />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/track/:trackId" element={<TrackDetail />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/artists" element={<Artists />} />
+              <Route path="/playlists" element={<Playlists />} />
+              <Route path="/artists/:id" element={<Details />} />
+              <Route path="/savedtracks" element={<SavedTracks />} />
+              <Route path="/search" element={<GeneralSearch />} />
+              <Route path="/user" element={<User />} />
+            </Routes>
+>>>>>>> user
 
               <Footer />
               </div>
