@@ -1,4 +1,3 @@
-/* Estilos generales del nav */
 .nav-list {
     list-style: none;
     display: flex;
@@ -44,7 +43,6 @@
     text-align: center;
   }
   
-  /* Estilos para el menú hamburguesa */
   .menu-icon {
     display: none;
     cursor: pointer;
@@ -74,7 +72,6 @@
     transform: rotate(45deg) translate(-7px, -7px);
   }
   
-  /* Media Query para el menú hamburguesa a partir de 1080px */
   @media screen and (max-width: 1080px) {
     .menu-icon {
       display: block;
@@ -99,7 +96,6 @@
     }
   }
   
-  /* Estilos para pantallas mayores a 1080px */
   @media screen and (min-width: 1081px) {
     .nav-list {
       position: static;
