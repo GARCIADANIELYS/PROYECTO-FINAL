@@ -41,10 +41,8 @@ function App() {
 
                   <Route
                     path="/track/:trackId"
-                    element={
-                      <AuthRouthe token={token} Component={<TrackDetail />} />
-                    }
-                  />
+                    element={<TrackDetail />} />
+                    
                   <Route path="/login" element={<Login />} />
                   <Route
                     path="/artists"

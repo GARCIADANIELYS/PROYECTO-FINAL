@@ -1,67 +1,54 @@
-/* .track-details-container{
-    background-color: rgb(0, 0, 0);
+.track-details {
+    background-color: black;
     color: white;
+    padding: 100px 0px;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    padding: 60px 0px 100px 0px;
+    flex-wrap: wrap;
 }
 
-.track-details-image{
-    width: 400px;
-    border: rgb(112,114,207) 2px solid;
+.track-details-image {
     border-radius: 100px 0px 100px 0px;
+    width: 400px;
+    height: 400px;
+    border: white 2px solid;
 }
 
-.track-details-image:hover{
+.track-details-image:hover {
     border-radius: 100px 100px 100px 100px;
-    border: white 2px solid;
+    border: 2px rgb(112, 114, 207) solid;
     transition-duration: 1s;
 }
 
-.track-details-track{
-    text-shadow: aquamarine;
-    text-shadow: rgba(112, 114, 207, 0.747) 2px 5px;
-    width: 350px;
+.track-details-names-container {
+    padding-left: 50px;
 }
 
-.available-markets{
-    width: 300px;
-    text-align: center;
+.details-trackname {
+    font-weight: 300;
+    letter-spacing: 3px;
+    margin: 0;
 }
 
-.artists-redirecto-link{
-    text-decoration: none;
-    background-color: rgba(112, 114, 207, 0.747);
-    color: black;
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-weight: bold;
+.details-artistname {
+    font-weight: 200;
+    font-size: 28px;
+    letter-spacing: 2px;
 }
 
-.artists-redirecto-link:hover{
-    font-size: large;
-}
-
-.track-details-image-container{
+.details-info-container {
+    margin: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
 }
 
-.track-details-info-container{
-    padding: 0px 20px;
-    border-radius: 10px;
-    color: black;
-    font-size: larger;
-    font-weight: bolder;
+.details-list {
+    font-weight: 250;
+    letter-spacing: 1px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
-.track-details-info-container ul li{
-    background-color: rgb(112,114,207);
-    text-align: center;
-    border-radius: 5px;
-    width: 250px;
-} */
+.each-div-detail {
+    display: flex;
+}

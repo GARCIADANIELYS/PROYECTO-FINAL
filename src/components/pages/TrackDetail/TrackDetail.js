@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import { Link } from 'react-router-dom';
 import './TrackDetail.css';
 import '../../../App.css';
 import { TbPlayerTrackNext } from 'react-icons/tb';
-import { AiOutlineFire } from 'react-icons/ai';
-import { Si1001Tracklists } from 'react-icons/si';
-import { BsMusicNote } from 'react-icons/bs';
+
 
 const TrackDetail = () => {
-    //con useParams me traigo los datos del Id del track
     const { trackId } = useParams();
     const [ trackDetails, setTrackDetails ] = useState(null);
 
@@ -34,7 +30,7 @@ const TrackDetail = () => {
         fetchData();
     }, [ trackId ]);
 
-    if (!trackDetails) return null;
+    if (!trackDetails) return (<><h1>no carga</h1></>);
 
 
     return (
