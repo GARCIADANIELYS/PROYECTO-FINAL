@@ -1,23 +1,56 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
 
 const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
-    <div className="center">
-      <ul className="nav-list">
-        <li className="pages">
-          <Link to="/">Inicio</Link>
-        </li>
-        <li className="pages">
-          <Link to="/login">Login</Link>
-        </li>
-        <li>
-          <Link to="/artists">Artists</Link>
-        </li>
-        <li>
-          <Link to="/playlists">Playlists</Link>
-        </li>
-       
+    <div className="header-master">
+      <div className={`menu-icon ${isMenuOpen ? "open" : ""}`} onClick={toggleMenu}>
+        <div className="bar"></div>
+        <div className="bar"></div>
+        <div className="bar"></div>
+      </div>
+      <ul className={`nav-list ${isMenuOpen ? "open" : ""}`}>
+        <img
+          className="logo"
+          src={require("../../../assets/logo-musify.png")}
+          alt="logo-musify"
+        />
+        <div className="li-list">
+          <li className="pages">
+            <img
+              src={require("../../../assets/home-icon.png")}
+              alt="icon-home"
+            />
+            <Link to="/">Home</Link>
+          </li>
+
+          <li className="pages">
+            <img
+              src={require("../../../assets/artist-icon.png")}
+              alt="icon-artists"
+            />
+            <Link to="/artists">Artists</Link>
+          </li>
+
+          <li className="pages">
+            <img
+              src={require("../../../assets/playlist-icon.png")}
+              alt="icon-playlists"
+            />
+            <Link to="/playlists">Playlists</Link>
+          </li>
+
+          <li className="pages">
+            <Link to="/login">Login</Link>
+          </li>
+        </div>
       </ul>
     </div>
   );

@@ -13,7 +13,7 @@ import SavedTracks from "./components/pages/SavedTracks/SavedTracks";
 import Playlists from "./components/pages/Playlist/Playlists";
 import GeneralSearch from "./components/pages/Searcher/GeneralSearch";
 import AlbumsDetails from "./components/pages/AlbumDetails/AlbumsDetails";
-
+import './App.css'
 function App() {
   const [token, setToken] = useState(
     window.localStorage.access_token ? window.localStorage.access_token : null
@@ -22,27 +22,30 @@ function App() {
     window.localStorage.refresh_token ? window.localStorage.refresh_token : null
   );
 
-
   return (
     <>
       <RefreshTokenContext.Provider value={{ refresh, setRefresh }}>
         <TokenContext.Provider value={{ token, setToken }}>
-          <BrowserRouter>
-            <Header />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/track/:trackId" element={<TrackDetail />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/artists" element={<Artists />} />
-              <Route path="/playlists" element={<Playlists />} />
-              <Route path="/artists/:id" element={<Details />} />
-              <Route path="/album/:albumId" element={<AlbumsDetails />} />
-              <Route path="/savedtracks" element={<SavedTracks />} />
-              <Route path="/search" element={<GeneralSearch />} />
-            </Routes>
+          <div className="container-master">
+            <BrowserRouter>
+              <Header />
+              <div className="container-content-master">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/track/:trackId" element={<TrackDetail />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/artists" element={<Artists />} />
+                <Route path="/playlists" element={<Playlists />} />
+                <Route path="/artists/:id" element={<Details />} />
+                <Route path="/album/:albumId" element={<AlbumsDetails />} />
+                <Route path="/savedtracks" element={<SavedTracks />} />
+                <Route path="/search" element={<GeneralSearch />} />
+              </Routes>
 
-            <Footer />
-          </BrowserRouter>
+              <Footer />
+              </div>
+            </BrowserRouter>
+          </div>
         </TokenContext.Provider>
       </RefreshTokenContext.Provider>
     </>

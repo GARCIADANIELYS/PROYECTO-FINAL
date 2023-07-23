@@ -1,4 +1,23 @@
+body{
+      color: white;
+}
 .center{
-    width: 80%;
+    width: 90%;
     margin: auto;
+}
+.container-master{
+    display: flex;
+    flex-direction: row;
+}
+.container-content-master{
+    background-color: black;
+    width: 340%;
+}
+@media screen and (max-width: 1080px){
+    .container-master{
+        display: block;
+    }
+    .container-content-master{
+        width: 100%;
+    }
 }

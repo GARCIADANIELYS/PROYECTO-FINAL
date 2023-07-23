@@ -23,10 +23,12 @@ const Details = () => {
             )}
           </div>
           <div className="artist-container">
-            <h2 className="name-artist">{artistDetails.name}</h2>
-            {artistDetails.genres && (
-              <p className="genres-container">{artistDetails.genres[0]}</p>
-            )}
+            <div className="artist-info-container">
+              <h2 className="name-artist">{artistDetails.name}</h2>
+              {artistDetails.genres && (
+                <p className="genres-container">{artistDetails.genres[0]}</p>
+              )}
+            </div>
 
             <ul className="tracks-artist-container">
               {topTracks.slice(0, 6).map((track, index) => (
@@ -34,7 +36,7 @@ const Details = () => {
                   <div className="id-tracks">
                     <p>{`0${index + 1} `}</p>
                   </div>
-                  <div className="tracks-data">
+                  <div className="tracks-artist-data">
                     <p className="name-class">{` ${track.name}`}</p>
                     <div className="album-times-container">
                       <p className="name-tracks"> {track.album.name}</p>
@@ -46,25 +48,26 @@ const Details = () => {
           </div>
         </div>
 
-        <h3 className="albums-title">Álbumes</h3>
+        <h3 className="albums-title">Albums</h3>
         <div className="container-albums-artist-data">
           {artistAlbums &&
             artistAlbums.map((album) => (
-            
               <div className="albums-artists-conainer" key={album.id}>
-              <Link to={`/album/${album.id}`}>
-                <img
-                  className="img-album-artist"
-                  src={album.images[0].url}
-                  alt={album.name}
-                />
-                <div className="data-album-container">
-                  <p className="album-name">{album.name}</p>
-                  <p className="album-tracks-number"> {album.total_tracks} Songs</p>
-                </div>
+                <Link to={`/album/${album.id}`}>
+                  <img
+                    className="img-album-artist"
+                    src={album.images[0].url}
+                    alt={album.name}
+                  />
+                  <div className="data-album-container">
+                    <p className="album-name">{album.name}</p>
+                    <p className="album-tracks-number">
+                      {" "}
+                      {album.total_tracks} Songs
+                    </p>
+                  </div>
                 </Link>
               </div>
-             
             ))}
         </div>
       </div>

@@ -2,6 +2,11 @@
     display: flex;
     flex-direction: row;
     margin-top: 50px;
+  
+}
+a{
+    color: white;
+    text-decoration: none;
 }
 
 .album-img {
@@ -10,7 +15,7 @@
 }
 .album-img img{
     width: 100%;
-    box-shadow: 5px 5px 10px -5px black;
+    box-shadow: 5px 5px 10px -5px rgb(52, 52, 52);
 }
 .data-album{
     margin-left: 40px;
