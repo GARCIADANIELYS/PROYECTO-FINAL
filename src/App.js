@@ -13,8 +13,8 @@ import SavedTracks from "./components/pages/SavedTracks/SavedTracks";
 import Playlists from "./components/pages/Playlist/Playlists";
 import GeneralSearch from "./components/pages/Searcher/GeneralSearch";
 import AlbumsDetails from "./components/pages/AlbumDetails/AlbumsDetails";
-import './App.css'
-import User from "./components/core/User/User";
+import "./App.css";
+import AuthRouthe from "./components/AuthRouth/AuthRouthe";
 
 function App() {
   const [token, setToken] = useState(
@@ -32,19 +32,38 @@ function App() {
             <BrowserRouter>
               <Header />
               <div className="container-content-master">
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/track/:trackId" element={<TrackDetail />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/artists" element={<Artists />} />
-                <Route path="/playlists" element={<Playlists />} />
-                <Route path="/artists/:id" element={<Details />} />
-                <Route path="/album/:albumId" element={<AlbumsDetails />} />
-                <Route path="/savedtracks" element={<SavedTracks />} />
-                <Route path="/search" element={<GeneralSearch />} />
-              </Routes>
+                <Routes>
+                  <Route
+                    path="/"
+                    element={<AuthRouthe token={token} component={<Home />} />}
+                  />
+                  <Route path="/album/:albumId" element={<AlbumsDetails />} />
 
-              <Footer />
+                  <Route
+                    path="/track/:trackId"
+                    element={
+                      <AuthRouthe token={token} Component={<TrackDetail />} />
+                    }
+                  />
+                  <Route path="/login" element={<Login />} />
+                  <Route
+                    path="/artists"
+                    element={
+                      <AuthRouthe token={token} component={<Artists />} />
+                    }
+                  />
+                  <Route
+                    path="/playlists"
+                    element={
+                      <AuthRouthe token={token} component={<Playlists />} />
+                    }
+                  />
+                  <Route path="/artists/:id" element={<Details />} />
+                  <Route path="/savedtracks" element={<SavedTracks />} />
+                  <Route path="/search" element={<GeneralSearch />} />
+                </Routes>
+
+                <Footer />
               </div>
             </BrowserRouter>
           </div>

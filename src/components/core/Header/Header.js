@@ -1,12 +1,21 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
+import { useContext } from "react";
+import { TokenContext } from "../../../context/tokenContext";
 
 const Header = () => {
   const [ isMenuOpen, setIsMenuOpen ] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const { token } = useContext(TokenContext);
+
+  const handleLogout = () => {
+    localStorage.clear();
+    window.location.href = "/login";
   };
 
   return (
@@ -22,6 +31,9 @@ const Header = () => {
           src={require("../../../assets/logo-musify.png")}
           alt="logo-musify"
         />
+           <li className="pages">
+            <Link to="/login">Login</Link>
+          </li>
         <div className="li-list">
           <li className="pages">
             <img
@@ -46,17 +58,17 @@ const Header = () => {
             />
             <Link to="/playlists">Playlists</Link>
           </li>
-
-          <li className="pages">
-            <Link to="/login">Login</Link>
-          </li>
-
           <li>
-            <Link to="/user">User</Link>
+            <Link to="/logout" onClick={handleLogout}>
+              Logout
+            </Link>
           </li>
+
+          </div>
+         
+        </ul>
         </div>
-      </ul>
-    </div>
+       
   );
 };
 

@@ -1,14 +1,16 @@
 import axios from "axios";
 import React, { useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useContext } from "react-router-dom";
 import Global from "../../core/Global/global";
 import "../Login/login.css";
+import { TokenContext } from "../../../context/tokenContext";
 
 const baseUrl = `https://accounts.spotify.com/authorize?client_id=${Global.client_id}&response_type=code&redirect_uri=${Global.redirect_uri}&scope=${Global.scopes}`;
 
 const Login = () => {
   const location = useLocation();
-  let navigate = useNavigate();
+
+
 
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
@@ -33,8 +35,11 @@ const Login = () => {
         .then((res) => {
           localStorage.setItem("access_token", res.data.access_token);
           localStorage.setItem("refresh_token", res.data.refresh_token);
-          navigate("/");
-        });
+      
+          window.location.href = "/"
+                   
+         
+        })
     } catch (error) {
       console.log(error);
     }
@@ -42,7 +47,11 @@ const Login = () => {
 
   function login() {
     window.location.replace(baseUrl);
+  
+  
   }
+
+  
 
   return (
     <div className="general">

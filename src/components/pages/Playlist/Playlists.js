@@ -24,6 +24,9 @@ function Playlists() {
           })
           .then((response) => {
             setPlaylist(response.data);
+            if (response.data.items.length > 0) {
+              setSelectedPlaylist(response.data.items[0]);
+            }
           });
       } catch (error) {
         console.error("Erro ao obter os dados da playlist:", error);
@@ -62,12 +65,10 @@ function Playlists() {
         
           <section className="playlist-names">
           <Link to={"/search"} className="generalSearch-link">Search</Link>
-          <div>
-            <button className="top-buttons">Playlists</button>
+           <div className="list-names">
             <button onClick={showPlaylistCreator} className="top-buttons">
-              +
+              New Playlist
             </button>
-            </div>
             {playlist?.items?.map((playlist) => {
               return (
                 <div
@@ -76,11 +77,11 @@ function Playlists() {
                   style={{ cursor: "pointer" }}
                   className="name"
                 >
-                  <span className="material-symbols-outlined">music_note</span>
-                  {playlist.name}
+                 <span className="name">{playlist.name}</span> 
                 </div>
               );
             })}
+            </div>
             <section>
               {showForm && (
                 <PlaylistCreator onPlaylistCreated={handlePlaylistCreated} />

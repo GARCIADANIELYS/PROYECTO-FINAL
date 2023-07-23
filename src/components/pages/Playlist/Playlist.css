@@ -1,5 +1,6 @@
 .playlist-container{
     display: flex;
+    flex-direction: column;
     margin-left: 5px;
     padding:20px;
     gap: 5px;
@@ -12,14 +13,15 @@
 
 .generalSearch-link {
   color: white;
+  padding: 10px;
 }
 .playlist-names{
-    flex-grow: 0;
-    flex-basis: 10%;
     padding: 10px;
     background-color: #121212;
     border-radius: 5px;
+    padding-left: 30px;
 }
+
 
 .playlist-names .top-buttons{
     border-radius: var(--encore-border-radius-max,32px);
@@ -31,38 +33,28 @@
     background-color: #2A2A2A;
     color: white;
     margin-bottom: 10px;
-    margin-left: 10px
-    
+        
+}
+
+.list-names{
+  display: flex;
 }
 
 .playlist-names div{
     height: 58px;
     display: flex;
-    align-items: center;
-    gap: 5px;
+    align-items: baseline;
+    gap: 30px;
     border-radius: 5px;
     padding: 10px;
+    margin-top: 10px;
     
 
 }
-.playlist-names span{
-    display: block;
-     text-decoration: none;
-     color: white;
-     align-items: center;
-    background-color: #282828;
-    border: none;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    height: 48px;
-    width: 48px;
-    border-radius: 5px;
-    
-}
 
-.playlist-names div:hover{
-    background-color: #393939;
+
+.playlist-names .name:hover{
+   text-decoration: underline;
 }
 
 .playlist-names .name{
@@ -76,6 +68,7 @@
     flex-grow: 1;
     flex-basis: 70%;
     border-radius: 5px;
+    padding-left: 30px;
 }
 
 .playlist-details .header-playlist{
