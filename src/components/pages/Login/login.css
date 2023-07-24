@@ -41,3 +41,22 @@
     border-radius: 40px;
     width: 50%;
   }
+
+  @media (max-width:520px){
+    .box-login{
+      width: 40%;
+    }
+  }
+
+  @media (max-width:390px){
+    .box-login{
+      width: 30%;
+      height: 100px;
+    }
+    .box-login p{
+      display: none;
+    }
+    .btnLogin{
+      width: 90%;
+    }
+  }
