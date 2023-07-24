@@ -39,7 +39,7 @@ const TrackDetail = () => {
         fetchData();
     }, [ trackId ]);
 
-    if (!trackDetails) return (<><h1>CARGANDO ...</h1></>);
+    if (!trackDetails) return null;
 
 
     return (
