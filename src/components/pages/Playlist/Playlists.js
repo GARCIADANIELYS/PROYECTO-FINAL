@@ -82,11 +82,11 @@ function Playlists() {
               );
             })}
             </div>
-            <section>
+           
               {showForm && (
                 <PlaylistCreator onPlaylistCreated={handlePlaylistCreated} />
               )}
-            </section>
+          
           </section>
           <section className="playlist-details">
             {selectedPlaylist && (

@@ -30,7 +30,7 @@ function App() {
         <TokenContext.Provider value={{ token, setToken }}>
           <div className="container-master">
             <BrowserRouter>
-              <Header />
+              {token && <Header />}
               <div className="container-content-master">
                 <Routes>
                   <Route
@@ -41,8 +41,8 @@ function App() {
 
                   <Route
                     path="/track/:trackId"
-                    element={<TrackDetail />} />
-                    
+                    element={<TrackDetail />}
+                  />
                   <Route path="/login" element={<Login />} />
                   <Route
                     path="/artists"
@@ -60,7 +60,6 @@ function App() {
                   <Route path="/savedtracks" element={<SavedTracks />} />
                   <Route path="/search" element={<GeneralSearch />} />
                 </Routes>
-
                 <Footer />
               </div>
             </BrowserRouter>
