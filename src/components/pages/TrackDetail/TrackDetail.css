@@ -107,3 +107,28 @@
         font-size: medium;
     }
 }
+
+@media (max-width:820px){
+    .track-details{
+        font-size: x-large;
+    }
+    .track-details-container{
+        width: 100%;
+        padding: 0;
+    }
+    .details-img-div{
+        width: 90%;
+        padding-left: 40px;
+        margin-bottom: 10px;
+    }
+    .more{
+        font-size: xx-large;
+    }
+    .each-div-detail{
+        height: 85px;
+    }
+    .details-artistname{
+        font-size: 40px;
+        margin: 10px;
+    }
+}

@@ -62,3 +62,14 @@
         font-size: 28px;
     }
 }
+
+@media (max-width:820px){
+    .artist-card-link{
+        width: 40%;
+        margin-right: 5px;
+    }
+    .artist-img{
+        width: 100%;
+        height: auto;
+    }
+}

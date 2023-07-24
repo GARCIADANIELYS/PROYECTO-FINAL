@@ -17,3 +17,22 @@
     color: rgb(95, 30, 187);
     transition-duration: 3s;
 }
+
+@media (max-width:720px){
+    .genres-ul{
+        font-size: 21px;
+    }
+    .title-preferences{
+        font-size: 25px;
+        font-weight: 300;
+    }
+}
+
+@media (max-width:820px){
+    .title-preferences{
+        font-size: 50px;
+    }
+    .genres-ul{
+        font-size: 43px;
+    }
+}
