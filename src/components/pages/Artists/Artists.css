@@ -1,4 +1,4 @@
-.artists{
+.artists {
     background-color: black;
     color: white;
     display: flex;
@@ -6,7 +6,7 @@
     align-items: center;
 }
 
-.artists-container{
+.artists-container {
     padding-top: 20px;
     width: 100%;
     display: flex;
@@ -14,7 +14,7 @@
     justify-content: space-around;
 }
 
-.artist-card-link{
+.artist-card-link {
     width: 30%;
     display: flex;
     flex-direction: column;
@@ -22,22 +22,27 @@
     text-align: center;
 }
 
-.artist-img{
+.artist-img {
     width: 220px;
     height: 220px;
 }
 
-.artist-img:hover{
+.artist-img:hover {
     border: 2px rgb(132, 133, 204) solid;
     border-radius: 50px;
     transition-duration: 0.6s;
 }
 
-.name{
+.name {
     letter-spacing: 3px;
     font-weight: 400;
 }
 
-.genres{
+.genres {
     color: rgb(96, 97, 119);
+}
+
+.artists-title {
+    width: 90%;
+    margin-top: 20px;
 }
