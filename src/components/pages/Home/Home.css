@@ -76,3 +76,24 @@ p.track-artist-name {
     border: 2px rgb(112, 114, 207) solid;
     transition-duration: 0.6s;
 }
+
+@media (max-width:720px){
+    .home{
+        padding-top: 80px;
+    }
+    .title{
+        font-size: 19px;
+        width: auto;
+    }
+    .btn-div button{
+        margin: 0;
+    }
+    .track-card{
+        width: 80%;
+    }
+    p.track-name,
+    p.track-artist-name{
+        width: 90%;
+        font-size: large;
+    }
+}
