@@ -46,3 +46,19 @@
     width: 90%;
     margin-top: 20px;
 }
+
+@media (max-width:720px){
+    .artist-card-link{
+        width: 90%;
+    }
+    .name{
+        font-size: 33px;
+    }
+    .artist-img{
+        width: 90%;
+        height: auto;
+    }
+    .genres{
+        font-size: 28px;
+    }
+}
