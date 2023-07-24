@@ -10,7 +10,7 @@ import Recommendations from "../Recommendations/Recommendations";
 
 const Home = () => {
   const { trackApiResponse } = useContext(ApiContext);
-  const [visibleTracks, setVisibleTracks] = useState(5);
+  const [ visibleTracks, setVisibleTracks ] = useState(5);
 
   if (
     trackApiResponse &&
@@ -49,7 +49,9 @@ const Home = () => {
         <div className="tracks-container">
           {allTracks.slice(0, visibleTracks).map((track) => (
             <div className="track-card" key={track.id}>
-              {track.name && <p className="track-name">{track.name}</p>}
+            {track.artists && track.artists.length > 0 && (
+                <p className="track-artist-name">{track.artists[ 0 ].name}</p>
+              )}
 
               {track.album &&
                 track.album.images &&
@@ -57,15 +59,13 @@ const Home = () => {
                   <Link to={`/track/${track.id}`}>
                     <img
                       className="track-card-image"
-                      src={track.album.images[0].url}
+                      src={track.album.images[ 0 ].url}
                       alt={track.album.name}
                     />
                   </Link>
                 )}
 
-              {track.artists && track.artists.length > 0 && (
-                <p className="track-artist-name">{track.artists[0].name}</p>
-              )}
+              {track.name && <p className="track-name">{track.name}</p>}
             </div>
           ))}
         </div>

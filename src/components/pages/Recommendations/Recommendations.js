@@ -49,7 +49,8 @@ const Recommendations = () => {
 
           {allTracks.slice(0, visibleTracks).map((track) => (
             <div className='track-card' key={track.id}>
-              <p className='track-name'>{track.name}</p>
+              <p className='track-artist-name'>{track?.artists[ 0 ]?.name}</p>
+
               <Link to={`/track/${track.id}`}>
                 <img
                   className='track-card-image'
@@ -57,7 +58,7 @@ const Recommendations = () => {
                   alt={track.name}
                 />
               </Link>
-              <p className='track-artist-name'>{track?.artists[ 0 ]?.name}</p>
+              <p className='track-name'>{track.name}</p>
             </div>
           ))}
         </div>

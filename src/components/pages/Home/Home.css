@@ -35,6 +35,7 @@
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 20px;
+    align-items: flex-start;
 }
 
 .track-card {
@@ -47,13 +48,12 @@
     cursor: pointer;
     margin: 0px 15px 30px 15px;
     width: 16%;
-    text-transform: uppercase;
 }
 
 p.track-name {
     width: 150px;
-    font-size: small;
     font-weight: 500;
+    font-size: 15px;
 }
 
 p.track-artist-name {
@@ -62,6 +62,7 @@ p.track-artist-name {
     margin: 0;
     letter-spacing: 1px;
     color: rgba(255, 255, 255, 0.869);
+    text-transform: uppercase;
 }
 
 .track-card-image {

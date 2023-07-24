@@ -60,9 +60,11 @@ const SavedTracks = () => {
       </div>
 
       <div className='tracks-container'>
+
         {savedTracks?.slice(0, visibleTracks).map((track) => (
           <div className='track-card' key={track.track.id}>
-            <p className='track-name'>{track.track.name}</p>
+            <p className='track-artist-name'>{track.track.artists[ 0 ].name}</p>
+
             <Link to={`/track/${track.track.id}`}>
               <img
                 className='track-card-image'
@@ -70,7 +72,7 @@ const SavedTracks = () => {
                 alt={track.track.name}
               />
             </Link>
-            <p className='track-artist-name'>{track.track.artists[ 0 ].name}</p>
+            <p className='track-name'>{track.track.name}</p>
           </div>
         ))}
       </div>
