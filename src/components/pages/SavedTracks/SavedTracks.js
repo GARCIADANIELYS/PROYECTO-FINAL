@@ -59,7 +59,6 @@ const SavedTracks = () => {
         </div>
       </div>
 
-
       <div className='tracks-container'>
         {savedTracks?.slice(0, visibleTracks).map((track) => (
           <div className='track-card' key={track.track.id}>

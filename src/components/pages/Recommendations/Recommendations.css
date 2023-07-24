@@ -1,7 +1,6 @@
 .title-preferences {
     font-weight: lighter;
     font-size: 16px;
-    padding-left: 50px;
     margin: 0;
 }
 
@@ -10,5 +9,11 @@
     display: flex;
     justify-content: space-evenly;
     color: rgb(156, 157, 205);
-    margin: 5px 0px;
+    margin: 15px 0 30px 0;
+    cursor: pointer;
+}
+
+.genres-ul:hover{
+    color: rgb(95, 30, 187);
+    transition-duration: 3s;
 }
