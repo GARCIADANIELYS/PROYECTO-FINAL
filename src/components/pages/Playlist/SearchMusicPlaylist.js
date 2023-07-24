@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ApiContext } from "../../../services/Api";
 import Searcher from "../Searcher/Searcher";
+import { Link } from "react-router-dom";
 
 function SearchMusicPlaylist({ handleSongSelected, handleUpdateSong }) {
   const { apiResponse, setEndpoint, search } = useContext(ApiContext);
@@ -40,8 +41,9 @@ function SearchMusicPlaylist({ handleSongSelected, handleUpdateSong }) {
                 <>
               
                 <li key={song.id} className="song-list-item">
+                <Link to={`/track/${song.id}`}>
                 <img src={song.album.images[0].url} alt="song cover" className="list-img"/>
-                
+                </Link>
                   <div className="song-name">{song.name}</div>
                  
                   <div className="song-artist">

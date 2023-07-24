@@ -31,6 +31,7 @@ const Header = () => {
           src={require("../../../assets/logo-musify.png")}
           alt="logo-musify"
         />
+        
            <li className="pages">
             <Link to="/login">Login</Link>
           </li>
@@ -58,8 +59,8 @@ const Header = () => {
             />
             <Link to="/playlists">Playlists</Link>
           </li>
-          <li>
-            <Link to="/logout" onClick={handleLogout}>
+          <li className="pages">
+            <Link to="/logout" className="pages" onClick={handleLogout}>
               Logout
             </Link>
           </li>

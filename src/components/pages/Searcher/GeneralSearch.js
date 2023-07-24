@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { ApiContext } from "../../../services/Api";
 import Searcher from "../Searcher/Searcher";
 import "./GeneralSearch.css";
+import { Link } from "react-router-dom";
 
 function GeneralSearch() {
   const { apiResponse, setEndpoint, search } = useContext(ApiContext);
@@ -37,15 +38,19 @@ function GeneralSearch() {
                     <>
                       <li key={song.id} className="search-list-item">
                         {song?.album?.images[0]?.url ? (
+                          <Link to={`/track/${song.id}`}>
                           <img
                             src={song?.album?.images[0]?.url}
                             alt="song cover"
                             className="search-list-img"
                           />
+                          </Link>
                         ) : (
+                          <Link to={`/track/${song.id}`}>
                           <span className="material-symbols-outlined">
                             music_note
                           </span>
+                          </Link>
                         )}
                         <div className="track-info">
                           <div className="track-name">{song.name}</div>
@@ -68,11 +73,13 @@ function GeneralSearch() {
                   return (
                     <>
                       <li key={album.id} className="search-list-item">
+                       <Link to={`/album/${album.id}`} key={album.id}>
                         <img
                           src={album.images[0].url}
                           alt="album cover"
                           className="search-list-img"
                         />
+                        </Link>
                         <div className="search-album-info">
                           <div className="search-album-name">{album.name}</div>
 
@@ -94,15 +101,19 @@ function GeneralSearch() {
                     <>
                       <li key={artist.id} className="search-list-item">
                         {artist?.images[0]?.url ? (
+                          <Link to={`/artists/${artist.id}`} key={artist.id}>
                           <img
                             src={artist?.images[0]?.url}
                             alt="artist cover"
                             className="search-list-img"
                           />
+                          </Link>
                         ) : (
+                          <Link to={`/artists/${artist.id}`}>
                           <span className="material-symbols-outlined">
                             music_note
                           </span>
+                          </Link>
                         )}
                         <div className="search-artist-name">{artist.name}</div>
                         <div className="search-type">{artist.type}</div>

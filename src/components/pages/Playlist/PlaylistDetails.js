@@ -3,6 +3,7 @@ import { ApiContext } from "../../../services/Api";
 import axios from "axios";
 import "./Playlist.css";
 import SearchMusicPlaylist from "./SearchMusicPlaylist";
+import { Link } from "react-router-dom";
 
 function PlaylistDetails({ selectedPlaylist }) {
   const [playlist, setPlaylist] = useState(selectedPlaylist);
@@ -129,16 +130,20 @@ function PlaylistDetails({ selectedPlaylist }) {
                         <span className="index">{index + 1}.</span>
 
                         {track.track.album ? (
+                          <Link to={`/track/${track.track.id}`}>
                           <img
                             className="album-image"
                             src={track.track.album.images[0].url}
                             alt="cover album"
                           />
+                          </Link>
                           
                         ) : (
+                          <Link to={`/track/${track.track.id}`}>
                           <span className="material-symbols-outlined">
                             music_note
                           </span>
+                          </Link>
                         )}
 
                         <div className="track-info">
