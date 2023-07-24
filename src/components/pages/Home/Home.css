@@ -97,25 +97,3 @@ p.track-artist-name {
         font-size: large;
     }
 }
-
-@media (max-width:820px){
-    .home{
-        padding-top: 50px;
-    }
-    .title{
-        font-size: 50px;
-        width: auto;
-    }
-    .btn-div button{
-        font-size: 30px;
-        margin: 0;
-    }
-    .track-card{
-        width: 40%;
-    }
-    p.track-name,
-    p.track-artist-name{
-        width: 100%;
-        font-size: xx-large;
-    }
-}

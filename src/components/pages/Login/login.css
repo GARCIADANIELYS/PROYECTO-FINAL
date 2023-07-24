@@ -44,19 +44,6 @@
 
   @media (max-width:520px){
     .box-login{
-      width: 40%;
-    }
-  }
-
-  @media (max-width:390px){
-    .box-login{
-      width: 30%;
-      height: 100px;
-    }
-    .box-login p{
-      display: none;
-    }
-    .btnLogin{
-      width: 90%;
+      width: 50%;
     }
   }

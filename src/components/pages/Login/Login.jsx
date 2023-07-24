@@ -51,8 +51,6 @@ const Login = () => {
   
   }
 
-  
-
   return (
     <div className="general">
       <div className="login-container">
