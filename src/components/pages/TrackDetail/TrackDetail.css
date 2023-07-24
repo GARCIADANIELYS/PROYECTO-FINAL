@@ -91,3 +91,19 @@
     letter-spacing: 4px;
     font-weight: 300;
 }
+
+@media (max-width:720px){
+    .track-details{
+        font-size: small;
+    }
+    .track-details-container{
+        width: 95%;
+        padding: 0;
+    }
+    .details-img-div{
+        width: 100%;
+    }
+    .more{
+        font-size: medium;
+    }
+}
