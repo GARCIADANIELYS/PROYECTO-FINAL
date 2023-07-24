@@ -132,7 +132,6 @@ useEffect(() => {
         const albumsData = await albumsResponse.json();
 
         setArtistAlbums(albumsData.items);
-        console.log("Álbumes del artista:", albumsData.items);
       }
     } catch (error) {
       console.log("Error al obtener los álbumes del artista:", error);
@@ -164,7 +163,6 @@ useEffect(() => {
   
           if (tracksData && tracksData.tracks && tracksData.tracks.length > 0) {
             setTopTracks(tracksData.tracks);
-            console.log("Top tracks del artista:", tracksData.tracks);
           } 
         }
       } catch (error) {
@@ -199,7 +197,6 @@ useEffect(() => {
         const data = await response.json();
 
         setRecApiResponse(data);
-        console.log("recommendations API response", data);
       } catch (error) {
         console.log("ERROR en API RESPONSE", error);
       }
@@ -232,7 +229,6 @@ useEffect(() => {
         const data = await response.json();
 
         setProfileApiResponse(data);
-        console.log("profile API response", data);
       } catch (error) {
         console.log("ERROR en API RESPONSE", error);
       }

@@ -1,6 +1,6 @@
 .general {
     height: 100vh;
-    background-image: url('../../../assets/background-login.jpg');
+    background-image: url('https://img.freepik.com/free-vector/gradient-particle-wave-background_23-2150517312.jpg?w=1480&t=st=1690190792~exp=1690191392~hmac=3b8fafe83286edb73b6a283551c95c59815ef3715f5989395d2f9d221775280f');
     background-size: cover;
   }
   
@@ -12,7 +12,7 @@
   }
   
   .box-login {
-    background-color: rgb(255, 255, 255); 
+    background-color: rgba(255, 255, 255, 0.739); 
     padding: 20px;
     border-radius: 10px;
     padding: 50px 50px 50px 50px;
@@ -22,6 +22,7 @@
   }
   .subtitle{
     margin-bottom: 50px;
+    letter-spacing: 1px;
   }
   .btnLogin{
     width: 60%;
@@ -34,5 +35,9 @@
     cursor: pointer;
   }
   
-  
-  
+  .btnLogin:hover{
+    transition-duration: 1.2s;
+    background-color: rgb(146, 18, 225);
+    border-radius: 40px;
+    width: 50%;
+  }

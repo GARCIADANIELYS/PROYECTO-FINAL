@@ -23,7 +23,6 @@ const SavedTracks = () => {
         setSavedTracks(data.items);
         // como las canciones pueden variar si agregamos o no más canciones hay que guardarlas
         setTotalSavedTracks(data.total);
-        console.log("respuesta Saved tracks", data.items);
       } catch (error) {
         console.log("petición favoritos fallida", error);
       }

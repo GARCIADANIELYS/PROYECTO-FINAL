@@ -31,7 +31,6 @@ const TrackDetail = () => {
                 const data = await response.json();
 
                 setTrackDetails(data);
-                console.log("respuesta fetch trackId", data);
             } catch (error) {
                 console.log("Error al obtener los detalles del track:", error);
             }

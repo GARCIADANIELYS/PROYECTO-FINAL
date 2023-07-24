@@ -14,7 +14,6 @@ const Recommendations = () => {
 
   if (recApiResponse && recApiResponse.tracks && recApiResponse.seeds) {
     const allTracks = recApiResponse.tracks;
-    console.log(allTracks);
 
     const handleShowMore = () => {
       setVisibleTracks(allTracks.length);

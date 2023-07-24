@@ -58,7 +58,7 @@ const Login = () => {
       <div className="login-container">
         <div className="box-login">
           <h1 className="subtitle">Login</h1>
-          <p>Inicia sesión con tu cuenta de spotify para acceder</p>
+          <p>Inicia sesión con tu cuenta de Spotify para acceder</p>
           <button onClick={login}  className="btnLogin">
             INICIAR SESION
           </button>
