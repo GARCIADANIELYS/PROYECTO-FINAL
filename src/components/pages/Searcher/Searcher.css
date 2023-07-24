@@ -1,0 +1,29 @@
+.searcher{
+    width: 80%;
+    padding-top: 90px;
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+}
+
+.searcher-input{
+    text-align: center;
+    width: 80%;
+    height: 40px;
+    background-color: rgba(87, 89, 123, 0.782);
+    border: 2px rgba(255, 255, 255, 0.393) solid;
+}
+
+.searcher-input::placeholder{
+    color: rgba(255, 255, 255, 0.757);
+}
+
+.searcher-btn{
+    background-color: black;
+    border: none;
+    color: white;
+}
+
+.search-icon{
+    cursor: pointer;
+}
