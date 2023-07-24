@@ -1,0 +1,14 @@
+.title-preferences {
+    font-weight: lighter;
+    font-size: 16px;
+    padding-left: 50px;
+    margin: 0;
+}
+
+.genres-ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    color: rgb(156, 157, 205);
+    margin: 5px 0px;
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../../App.css';
+import './Recommendations.css';
 import { useContext } from 'react';
 import { ApiContext } from '../../../services/Api';
 import { Link } from 'react-router-dom';

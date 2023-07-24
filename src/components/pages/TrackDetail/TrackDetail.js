@@ -1,13 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import './TrackDetail.css';
 import '../../../App.css';
-import { TbPlayerTrackNext } from 'react-icons/tb';
-
+import { CgPlayTrackNext } from 'react-icons/cg';
+import { LuMousePointerClick } from 'react-icons/lu';
 
 const TrackDetail = () => {
     const { trackId } = useParams();
     const [ trackDetails, setTrackDetails ] = useState(null);
+
+    const navigate = useNavigate();
+
+    const redirectToSearch= () => {
+        navigate("/search");
+    }
+
+    const redirectToArtists = () => {
+        navigate("/artists");
+    }
 
     useEffect(() => {
         const fetchData = async () => {
@@ -30,45 +40,53 @@ const TrackDetail = () => {
         fetchData();
     }, [ trackId ]);
 
-    if (!trackDetails) return (<><h1>no carga</h1></>);
+    if (!trackDetails) return (<><h1>CARGANDO ...</h1></>);
 
 
     return (
-        <div className='track-details'>
-            <img
-                src={trackDetails.album.images[ 0 ].url}
-                alt={trackDetails.album.name}
-                className='track-details-image'
-            />
+        <div className='track-details center'>
+            <div className='details-img-div'>
+                <img
+                    src={trackDetails.album.images[ 0 ].url}
+                    alt={trackDetails.album.name}
+                    className='track-details-image'
+                />
+            </div>
 
-            <div className='track-details-names-container'>
-                <h1 className='details-trackname'>{trackDetails.name} <TbPlayerTrackNext /></h1>
-                <h3 className='details-artistname'>Artist: {trackDetails.artists[ 0 ].name}</h3>
+            <div className='track-details-container'>
+                <div className='detail-names'>
+                    <h1 className='details-trackname'>{trackDetails.name} <CgPlayTrackNext /></h1>
+                    <h3 className='details-artistname'>Artist: {trackDetails.artists[ 0 ].name}</h3>
+                </div>
+
                 <div className='details-info-container'>
+
                     <div className='each-div-detail'>
-                        <p>Popularity Track Ranking</p>
-                        <p>{trackDetails.popularity}</p>
-                    </div>
-                    <div>
-                        <p>Popularity Track Ranking</p>
-                        <p>{trackDetails.popularity}</p>
-                    </div>
-                    <div>
-                        <p>Popularity Track Ranking</p>
-                        <p>{trackDetails.popularity}</p>
-                    </div>
-                    <div>
-                        <p>Popularity Track Ranking</p>
-                        <p>{trackDetails.popularity}</p>
+                        <div className='div-one'><p>Popularity Track Ranking</p></div>
+                        <div className='div-two'><p>{trackDetails.popularity}</p></div>
                     </div>
 
-                    {/* 
-                    <ul className='details-list'>
-                        <li><p>Popularity ranking: {trackDetails.popularity} <AiOutlineFire /></p></li>
-                        <li><p>{trackDetails.album.album_type} {trackDetails.type} <Si1001Tracklists /></p></li>
-                        <li><p>Álbum: "{trackDetails.album.name}"</p></li>
-                        <li><p><BsMusicNote /> {trackDetails.duration_ms} milisegundos</p></li>
-                    </ul> */}
+                    <div className='each-div-detail'>
+                        <div className='div-one'><p>Release Date</p></div>
+                        <div className='div-two'><p>{trackDetails.album.release_date}</p></div>
+                    </div>
+
+                    <div className='each-div-detail'>
+                        <div className='div-one'><p>Track Number</p></div>
+                        <div className='div-two'><p>{trackDetails.track_number}</p></div>
+                    </div>
+
+                    <div className='each-div-detail'>
+                        <div className='div-one album'><p>{trackDetails.album.name}</p></div>
+                        <div className='div-two text-link' onClick={redirectToSearch}><p>{trackDetails.album.album_type} <LuMousePointerClick /></p></div>
+                    </div>
+
+                    <div className='each-div-detail'>
+                        <div className='div-one'><p>Track Duration</p></div>
+                        <div className='div-two'><p>{trackDetails.duration_ms} ms</p></div>
+                    </div>
+                    <p className='text-link more' onClick={redirectToArtists}>More Artists</p>
+
                 </div>
             </div>
         </div>
