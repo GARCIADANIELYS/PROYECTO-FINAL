@@ -236,4 +236,7 @@
   .hide{
     display: none;
   }
+  .header-playlist{
+    flex-direction: column;
+  }
 }

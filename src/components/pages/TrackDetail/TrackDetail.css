@@ -110,4 +110,10 @@
     .more{
         font-size: medium;
     }
+    .track-details-image{
+        margin-bottom: 25px;
+    }
+    .details-info-container{
+        margin-top: 25px;
+    }
 }

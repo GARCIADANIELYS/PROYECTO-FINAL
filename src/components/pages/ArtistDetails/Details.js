@@ -10,7 +10,6 @@ const Details = () => {
 
   const { id } = useParams();
 
-  //variable de estado para guardar los albums que se tienen que renderizar
   const [ visibleAlbums, setVisibleAlbums ] = useState(5);
 
 
@@ -18,7 +17,6 @@ const Details = () => {
     (artist) => artist.id === id
   );
 
-  //funciones manejadoras del botón show more y less
   const handleShowMore = () => {
     setVisibleAlbums(artistAlbums.length);
   }
@@ -45,19 +43,26 @@ const Details = () => {
             </div>
 
             <ul className="tracks-artist-container">
+
               {topTracks.slice(0, 6).map((track, index) => (
                 <li className="li-container-tracks" key={track.id}>
-                  <div className="id-tracks">
-                    <p>{`0${index + 1} `}</p>
-                  </div>
-                  <div className="tracks-artist-data">
-                    <p className="name-class">{` ${track.name}`}</p>
-                    <div className="album-times-container">
-                      <p className="name-tracks"> {track.album.name}</p>
+                  
+                    <div className="id-tracks">
+                      <p>{`0${index + 1} `}</p>
                     </div>
-                  </div>
+                    <div className="tracks-artist-data">
+                    <Link className="link-tracks-artist" to={`/track/${track.id}`}>
+                      <p className="name-class">{` ${track.name}`}</p>
+                      </Link>
+                      <div className="album-times-container">
+                        <p className="name-tracks"> {track.album.name}</p>
+                      </div>
+                    </div>
+                  
                 </li>
               ))}
+
+
             </ul>
           </div>
         </div>
