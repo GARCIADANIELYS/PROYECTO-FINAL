@@ -6,7 +6,7 @@ import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
 
 const Details = () => {
   const { apiResponse, artistAlbums, topTracks } = useContext(ApiContext);
-  console.log(apiResponse);
+
 
   const { id } = useParams();
 

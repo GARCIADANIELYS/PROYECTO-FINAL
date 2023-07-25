@@ -21,9 +21,8 @@ const AlbumsDetails = () => {
         const data = await response.json();
 
         setAlbumDetails(data);
-        console.log("respuesta fetch trackId", data);
       } catch (error) {
-        console.log("Error al obtener los detalles del track:", error);
+        
       }
     };
 
