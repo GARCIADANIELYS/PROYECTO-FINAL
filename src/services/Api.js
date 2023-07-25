@@ -9,7 +9,6 @@ export const ApiContextProvider = ({ children }) => {
   const [type, setType] = useState("artist");
  
 
-
   const search_URL = `https://api.spotify.com/v1/search?q=${search}&type=${type}`;
  
   const access_token = window.localStorage.access_token
@@ -42,7 +41,6 @@ export const ApiContextProvider = ({ children }) => {
           setArtistId(artistId);
         }
       } catch (error) {
-        console.log("La llamada a la API no funciona", error);
       }
     };
 
@@ -50,7 +48,6 @@ export const ApiContextProvider = ({ children }) => {
   }, [ endpoint ]);
 
 
-  // petición API para obtener canciones para la Home
   const [ trackApiResponse, setTrackApiResponse ] = useState([]);
 
   const track_URL = "https://api.spotify.com/v1/search?q=album&type=track&limit=20"; // URL con q= album | type=track | limit=20 tracks
@@ -77,14 +74,13 @@ export const ApiContextProvider = ({ children }) => {
 
         setTrackApiResponse(data);
       } catch (error) {
-        console.log("intento de API call fallido",error);
       }
     }
 
     fetchData();
   }, [ trackEndpoint ]);
 
-// petición API para obtener canciones para la details
+
 const [artistId, setArtistId] = useState(""); 
 const [artistAlbums, setArtistAlbums] = useState([]);
 const ArtistsIdUrl = `https://api.spotify.com/v1/artists`;
@@ -103,13 +99,9 @@ useEffect(() => {
 
         const response = await fetch(`${ArtistsIdUrl}/${artistId}`, authParams);
         const data = await response.json();
-
- 
-
        
       }
     } catch (error) {
-      console.log("Error al obtener detalles del artista:", error);
     }
   };
 
@@ -134,16 +126,13 @@ useEffect(() => {
         setArtistAlbums(albumsData.items);
       }
     } catch (error) {
-      console.log("Error al obtener los álbumes del artista:", error);
     }
   };
 
   fetchAlbums();
 }, [artistId, ArtistsIdUrl]);
 
-  // petición API para obtener los top tracks del artista
   const [topTracks, setTopTracks] = useState([]);
-
 
 
   useEffect(() => {
@@ -166,14 +155,12 @@ useEffect(() => {
           } 
         }
       } catch (error) {
-        console.log("Error al obtener los top tracks del artista:", error);
       }
     };
   
     fetchTopTracks();
   }, [artistId, ArtistsIdUrl]);
 
-  // petición Api para obtener las recomendaciones de varias canciones
   const [recApiResponse, setRecApiResponse] = useState([]);
   const rec_URL = "https://api.spotify.com/v1/recommendations?limit=20&seed_genres=rock%2Cindie%2Calternative%2Cpop%2Cfolk";
   const [recEndpoint, setRecEndpoint] = useState("");
@@ -198,7 +185,6 @@ useEffect(() => {
 
         setRecApiResponse(data);
       } catch (error) {
-        console.log("ERROR en API RESPONSE", error);
       }
     }
     fetchRecData();
@@ -230,7 +216,6 @@ useEffect(() => {
 
         setProfileApiResponse(data);
       } catch (error) {
-        console.log("ERROR en API RESPONSE", error);
       }
     }
     fetchProfileData();

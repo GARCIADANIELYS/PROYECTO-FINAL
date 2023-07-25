@@ -32,7 +32,6 @@ const TrackDetail = () => {
 
                 setTrackDetails(data);
             } catch (error) {
-                console.log("Error al obtener los detalles del track:", error);
             }
         }
 

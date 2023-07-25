@@ -41,7 +41,7 @@
 
 .details-artistname {
     font-weight: 300;
-    font-size: 22px;
+    font-size: 28px;
     letter-spacing: 2px;
     margin: 0;
     padding-bottom: 10px;
@@ -57,19 +57,23 @@
     flex-direction: row;
     border: 2px solid rgb(211,211,227);  
     margin-bottom: 5px;  
-    height: 48px;
+    height: auto;
 }
 
 .div-one{
     width: 70%;
-    padding-left: 10px;
+    padding: 0 10px;    
+    display: flex;
+    align-items: center;
 }
 
 .div-two{
     width: 30%;
     background-color: rgb(211,211,227);
-    text-align: center;
     color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .album{
