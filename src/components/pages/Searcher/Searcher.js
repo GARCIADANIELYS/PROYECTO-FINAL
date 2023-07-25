@@ -33,17 +33,18 @@ const Searcher = ({ type }) => { //props define la buscaqueda, puede ser artist 
 
   return (
     <div className="searcher">
+       <button 
+      className="searcher-btn"
+      onClick={handleClick}><BsSearch className="search-icon" /><img src= {require("../../../assets/icon-search.png")} alt="Buscador" /></button>
       <input
         className="searcher-input"
         type="text"
-        placeholder="SEARCH YOUR FAVORITE ARTISTS"
+        placeholder="SEARCH"
         value={searchTerm}
         onChange={handleInputChange}
         onKeyDown={handleKeyPress}
       />
-      <button 
-      className="searcher-btn"
-      onClick={handleClick}><BsSearch className="search-icon" /></button>
+   
       
     </div>
   );
