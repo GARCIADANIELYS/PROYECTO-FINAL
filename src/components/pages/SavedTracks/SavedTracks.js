@@ -21,10 +21,8 @@ const SavedTracks = () => {
         const data = await response.json();
 
         setSavedTracks(data.items);
-        // como las canciones pueden variar si agregamos o no más canciones hay que guardarlas
         setTotalSavedTracks(data.total);
       } catch (error) {
-        console.log("petición favoritos fallida", error);
       }
     };
     fetchSavedTracks();
