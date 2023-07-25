@@ -10,8 +10,6 @@ function PlaylistDetails({ selectedPlaylist }) {
   const [newSong, setNewSong] = useState("");
   const { access_token } = useContext(ApiContext);
   const id = selectedPlaylist.id;
- 
-
 
   //1. llamada a la api con el id de la playlist recebido pro props
   useEffect(() => {
@@ -27,7 +25,7 @@ function PlaylistDetails({ selectedPlaylist }) {
         );
         setPlaylist(response.data);
       } catch (error) {
-        console.error("Erro ao obter os dados da playlist:", error);
+      
       }
     };
 
@@ -52,52 +50,47 @@ function PlaylistDetails({ selectedPlaylist }) {
 
       setNewSong(response.data);
     } catch (error) {
-      console.error("Erro to add newSong:", error);
+     
     }
   };
 
   //3. llamada a api para quitar la cancion
-  const removeSelectedSong = async ( track ) => {
+  const removeSelectedSong = async (track) => {
     const url = `https://api.spotify.com/v1/playlists/${id}/tracks`;
-   
-  
+
     const requestBody = {
-      "tracks": [
+      tracks: [
         {
-          "uri": `${track.track.uri}`
-        }
+          uri: `${track.track.uri}`,
+        },
       ],
-      "snapshot_id":`${selectedPlaylist.snapshot_id}`
-     
+      snapshot_id: `${selectedPlaylist.snapshot_id}`,
     };
-  
+
     try {
       const response = await axios.delete(url, {
         headers: {
           Authorization: "Bearer " + access_token,
-          "Content-Type": "application/json" 
+          "Content-Type": "application/json",
         },
-        data: requestBody
+        data: requestBody,
       });
-  
-      console.log("Song removed successfully:", response.data);
+
      
     } catch (error) {
-      console.error("Error removing song:", error);
+    
     }
   };
 
   //4. funcion para actulizar la playlist despues de quitar la cancion
   const handleRemoveSong = async (track) => {
     await removeSelectedSong(track);
-       const updatedPlaylist = { ...playlist };
+    const updatedPlaylist = { ...playlist };
     updatedPlaylist.tracks.items = updatedPlaylist.tracks.items.filter(
       (item) => item.track.id !== track.track.id
     );
     setPlaylist(updatedPlaylist);
   };
-
-
 
   const handleUpdateSong = (song) => {
     const updatedPlaylist = { ...playlist };
@@ -109,58 +102,87 @@ function PlaylistDetails({ selectedPlaylist }) {
     return (
       <>
         <div className="header-playlist">
-            {playlist.images[0] ? (
-              <img src={playlist.images[0].url} alt={playlist.name} />
-            ) : (
-              <span className="material-symbols-outlined">music_note</span>
-            )}
-            <div className="title-playlist">
-              <p>Playlist</p>
-              <h1>{playlist.name}</h1>
-              <p>{playlist.description}</p>
-              <p>{playlist.owner.display_name}</p>
-            </div>
+          {playlist.images[0] ? (
+            <img
+              src={playlist.images[0].url}
+              alt={playlist.name}
+              className="track-card-image"
+            />
+          ) : (
+            <span className="material-symbols-outlined">music_note</span>
+          )}
+          <div className="title-playlist">
+            <p>Playlist</p>
+            <h1>{playlist.name}</h1>
+            <p>{playlist.description}</p>
+            <p>{playlist.owner.display_name}</p>
           </div>
-          <div className="content-playlist">
-            <ul className="track-list">
-              {playlist.tracks.items
-                ? playlist.tracks.items.map((track, index) => {
-                    return (
-                      <ol key={track.track.id} className="track-item">
-                        <span className="index">{index + 1}.</span>
+        </div>
+        <div className="content-playlist">
+          <ul className="track-list">
+            <li className="track-item hide" style={{ fontStyle: "italic", justifyContent: "space-around"}}>
+              <div className="album-image">
+                <div> </div>
+              </div>
 
-                        {track.track.album ? (
-                          <Link to={`/track/${track.track.id}`}>
-                          <img
-                            className="album-image"
-                            src={track.track.album.images[0].url}
-                            alt="cover album"
-                          />
-                          </Link>
-                          
-                        ) : (
-                          <Link to={`/track/${track.track.id}`}>
+              <p className="track-name" style={{textAlign:"center"}}>        
+              </p>
+              <div>
+                <p className="track-name track-name-album">Album</p>
+              </div>
+              <div className="btn-div">
+                <button className="remove-btn"> </button>
+              </div>
+            </li>
+
+            {playlist.tracks.items
+              ? playlist.tracks.items.map((track, index) => {
+                  return (
+                    <li key={track.track.id} className="track-item ">
+                      {track.track.album ? (
+                        <Link to={`/track/${track.track.id}`}>
+                          <div className="album-image">
+                            <span>{index + 1}. </span>
+                            <img
+                              className="track-card-image"
+                              src={track.track.album.images[0].url}
+                              alt="cover album"
+                            />
+                          </div>
+                        </Link>
+                      ) : (
+                        <Link to={`/track/${track.track.id}`}>
                           <span className="material-symbols-outlined">
                             music_note
                           </span>
-                          </Link>
-                        )}
+                        </Link>
+                      )}
 
-                        <div className="track-info">
-                          <p className="track-name">{track.track.name}</p>
-                        </div>
-                        <button className="remove-btn" onClick={() => handleRemoveSong(track)}>Remove</button>
-                      </ol>
-                    );
-                  })
-                : null}
-            </ul>
-            <SearchMusicPlaylist
-              handleSongSelected={handleSongSelected}
-              handleUpdateSong={handleUpdateSong}
-            />
-          </div>
-        
+                      <p className="track-name">{track.track.name}</p>
+                      <div>
+                        <p className="track-name track-name-album">
+                          {track.track.album.name}
+                        </p>
+                      </div>
+
+                      <div className="btn-div">
+                        <button
+                          className="remove-btn"
+                          onClick={() => handleRemoveSong(track)}
+                        >
+                          Remove
+                        </button>
+                      </div>
+                    </li>
+                  );
+                })
+              : null}
+          </ul>
+          <SearchMusicPlaylist
+            handleSongSelected={handleSongSelected}
+            handleUpdateSong={handleUpdateSong}
+          />
+        </div>
       </>
     );
   }
