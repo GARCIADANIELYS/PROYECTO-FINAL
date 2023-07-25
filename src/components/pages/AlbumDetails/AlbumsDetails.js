@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import './AlbumDetails.css'
+import { Link } from "react-router-dom";
 
 const AlbumsDetails = () => {
   const { albumId } = useParams();
@@ -57,8 +58,10 @@ const AlbumsDetails = () => {
           <div className="tracks-data" key={track.id}>
             <div className="track-number">{track.track_number}</div>
             <div className="track-info">
+            <Link className="link-tracks-artist" to={`/track/${track.id}`}>
               <p className="title-track-album">{track.name}</p>
               <p className="name-artist-album">{track.artists[0].name}</p>
+              </Link>
             </div>
             <div className="track-time">{msToTime(track.duration_ms)}</div>
           </div>
