@@ -5,7 +5,7 @@ ApiContext.displayName = "ApiContext";
 
 export const ApiContextProvider = ({ children }) => {
   const [apiResponse, setApiResponse] = useState([]);
-  const [search, setSearch] = useState("the beatles");
+  const [search, setSearch] = useState("nirvana");
   const [type, setType] = useState("artist");
  
 
