@@ -25,7 +25,7 @@ function PlaylistDetails({ selectedPlaylist }) {
         );
         setPlaylist(response.data);
       } catch (error) {
-        console.error("Erro ao obter os dados da playlist:", error);
+      
       }
     };
 
@@ -50,7 +50,7 @@ function PlaylistDetails({ selectedPlaylist }) {
 
       setNewSong(response.data);
     } catch (error) {
-      console.error("Erro to add newSong:", error);
+     
     }
   };
 
@@ -76,9 +76,9 @@ function PlaylistDetails({ selectedPlaylist }) {
         data: requestBody,
       });
 
-      console.log("Song removed successfully:", response.data);
+     
     } catch (error) {
-      console.error("Error removing song:", error);
+    
     }
   };
 

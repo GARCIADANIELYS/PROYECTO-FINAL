@@ -11,17 +11,17 @@ function PlaylistCreator({ onPlaylistCreated }) {
   
 
   useEffect(() => {
-    setEndpoint(profile_URL); //se puede atualizar que endpoint llamar
+    setEndpoint(profile_URL); 
   }, [profile_URL]);
 
-  //1.Guarda los dados del input para pasar a la funcioncion createPlaylisr
+
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
 
  
 
-//2. llamada a api para crear un nueva playlist
+
   const createPlaylist = async () => {
     const url = `https://api.spotify.com/v1/users/${user_id}/playlists`;
     const requestBody = {
@@ -38,13 +38,13 @@ function PlaylistCreator({ onPlaylistCreated }) {
         },
         
       });
-      setCreatedPlaylist(response.data); //crea la playlist
-      setInputValue("");                 //deja el input in black despues del submit 
-      onPlaylistCreated(createdPlaylist);  //actuliza la lista de playlist del compoente Playlist
+      setCreatedPlaylist(response.data); 
+      setInputValue("");                 
+      onPlaylistCreated(createdPlaylist);  
      
      
     } catch (error) {
-      console.error("Erro ao criar a playlist:", error);
+  
     }
   };
 
