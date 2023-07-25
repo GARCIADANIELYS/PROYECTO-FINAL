@@ -39,6 +39,7 @@ function Playlists() {
   //2. funcion para mostrar los detalles de la playlist selecionada/clicada
   const handlePlaylistClick = (playlist) => {
     setSelectedPlaylist(playlist);
+    console.log(playlist)
   };
 
   //3.funcion para mostrar el form donde se crea las nuevas playlists
@@ -66,18 +67,20 @@ function Playlists() {
           <section className="playlist-names">
           <Link to={"/search"} className="generalSearch-link">Search</Link>
            <div className="list-names">
-            <button onClick={showPlaylistCreator} className="top-buttons">
+           <div className="btn-div">
+            <button onClick={showPlaylistCreator} className="top-buttons name">
               New Playlist
             </button>
+            </div>
             {playlist?.items?.map((playlist) => {
               return (
                 <div
                   key={playlist.id}
                   onClick={() => handlePlaylistClick(playlist)}
                   style={{ cursor: "pointer" }}
-                  className="name"
+                  className="name btn-div"
                 >
-                 <span className="name">{playlist.name}</span> 
+                 <button className="name">{playlist.name}</button> 
                 </div>
               );
             })}
