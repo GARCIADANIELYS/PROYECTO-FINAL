@@ -17,16 +17,17 @@ function SearchMusicPlaylist({ handleSongSelected, handleUpdateSong }) {
     track.name.toLowerCase().includes(search.toLowerCase())
    
   );
+ 
 
-  console.log(filteredSong)
   const handleTrackSelected = (track) => {
     setTrack(track);
     handleSongSelected(track);
     handleUpdateSong(track);
+     
     
 
   };
-
+console.log(search)
  
  
     return (

@@ -14,13 +14,15 @@ const Searcher = ({ type }) => {
   };
 
   const handleClick = () => {
-    setSearch(type);
+    setType(type)
+    //setSearch(type);
     setSearch(searchTerm);
   };
 
   const handleKeyPress = (ev) => {
     if (ev.key === "Enter") {
-      setSearch(type);
+      setType(type);
+      //setSearch(type);
       setSearch(searchTerm);
     }
   };
