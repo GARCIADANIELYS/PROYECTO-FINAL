@@ -6,28 +6,24 @@ import "./Playlist.css";
 function PlaylistCreator({ onPlaylistCreated }) {
   const [inputValue, setInputValue] = useState("");
   const [createdPlaylist, setCreatedPlaylist] = useState(null);
-  const { apiResponse, setEndpoint, profile_URL, access_token } =  useContext(ApiContext);
+  const { apiResponse, setEndpoint, profile_URL, access_token } =
+    useContext(ApiContext);
   const user_id = apiResponse.id;
-  
 
   useEffect(() => {
-    setEndpoint(profile_URL); 
+    setEndpoint(profile_URL);
   }, [profile_URL]);
-
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
 
- 
-
-
   const createPlaylist = async () => {
     const url = `https://api.spotify.com/v1/users/${user_id}/playlists`;
     const requestBody = {
-      "name": inputValue,
-      "description": "New playlist description",
-      "public": false
+      name: inputValue,
+      description: "New playlist description",
+      public: false,
     };
 
     try {
@@ -36,19 +32,12 @@ function PlaylistCreator({ onPlaylistCreated }) {
           Authorization: "Bearer " + access_token,
           "Content-Type": "application/json",
         },
-        
       });
-      setCreatedPlaylist(response.data); 
-      setInputValue("");                 
-      onPlaylistCreated(createdPlaylist);  
-     
-     
-    } catch (error) {
-  
-    }
+      setCreatedPlaylist(response.data);
+      setInputValue("");
+      onPlaylistCreated(createdPlaylist);
+    } catch (error) {}
   };
-
-  
 
   return (
     <>
@@ -60,13 +49,10 @@ function PlaylistCreator({ onPlaylistCreated }) {
           required
           onChange={handleInputChange}
         />
-        <button type="submit" onClick={createPlaylist} >
+        <button type="submit" onClick={createPlaylist}>
           Create
         </button>
       </form>
-
-     
-     
     </>
   );
 }

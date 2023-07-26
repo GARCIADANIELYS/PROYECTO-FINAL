@@ -12,11 +12,10 @@ function Playlists() {
   const [selectedPlaylist, setSelectedPlaylist] = useState(null);
   const [showForm, setShowForm] = useState(false);
 
-
   useEffect(() => {
     const getPlaylist = async () => {
       try {
-       await axios
+        await axios
           .get(`https://api.spotify.com/v1/me/playlists`, {
             headers: {
               Authorization: `Bearer ${access_token}`,
@@ -28,26 +27,20 @@ function Playlists() {
               setSelectedPlaylist(response.data.items[0]);
             }
           });
-      } catch (error) {
-        
-      }
+      } catch (error) {}
     };
 
     getPlaylist();
   }, [access_token]);
 
-
   const handlePlaylistClick = (playlist) => {
     setSelectedPlaylist(playlist);
-   
   };
-
 
   const showPlaylistCreator = () => {
     setShowForm(!showForm);
   };
 
- 
   const handlePlaylistCreated = (newPlaylist) => {
     setPlaylist((prevPlaylist) => {
       const updatedPlaylist = { ...prevPlaylist };
@@ -60,35 +53,37 @@ function Playlists() {
   if (playlist) {
     return (
       <>
-     
         <div className="playlist-container">
-        
           <section className="playlist-names">
-          <Link to={"/search"} className="generalSearch-link">Search</Link>
-           <div className="list-names">
-           <div className="btn-div">
-            <button onClick={showPlaylistCreator} className="top-buttons name">
-              New Playlist
-            </button>
-            </div>
-            {playlist?.items?.map((playlist) => {
-              return (
-                <div
-                  key={playlist.id}
-                  onClick={() => handlePlaylistClick(playlist)}
-                  style={{ cursor: "pointer" }}
-                  className="name btn-div"
+            <Link to={"/search"} className="generalSearch-link">
+              Go to Search
+            </Link>
+            <div className="list-names">
+              <div className="btn-div">
+                <button
+                  onClick={showPlaylistCreator}
+                  className="top-buttons name"
                 >
-                 <button className="name">{playlist.name}</button> 
-                </div>
-              );
-            })}
+                  New Playlist
+                </button>
+              </div>
+              {playlist?.items?.map((playlist) => {
+                return (
+                  <div
+                    key={playlist.id}
+                    onClick={() => handlePlaylistClick(playlist)}
+                    style={{ cursor: "pointer" }}
+                    className="name btn-div"
+                  >
+                    <button className="name">{playlist.name}</button>
+                  </div>
+                );
+              })}
             </div>
-           
-              {showForm && (
-                <PlaylistCreator onPlaylistCreated={handlePlaylistCreated} />
-              )}
-          
+
+            {showForm && (
+              <PlaylistCreator onPlaylistCreated={handlePlaylistCreated} />
+            )}
           </section>
           <section className="playlist-details">
             {selectedPlaylist && (
