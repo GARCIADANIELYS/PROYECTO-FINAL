@@ -6,12 +6,11 @@ import SearchMusicPlaylist from "./SearchMusicPlaylist";
 import { Link } from "react-router-dom";
 
 function PlaylistDetails({ selectedPlaylist }) {
-  const [playlist, setPlaylist] = useState(selectedPlaylist);
-  const [newSong, setNewSong] = useState("");
+  const [ playlist, setPlaylist ] = useState(selectedPlaylist);
+  const [ newSong, setNewSong ] = useState("");
   const { access_token } = useContext(ApiContext);
   const id = selectedPlaylist.id;
 
-  //1. llamada a la api con el id de la playlist recebido pro props
   useEffect(() => {
     const getPlaylistById = async () => {
       try {
@@ -25,18 +24,18 @@ function PlaylistDetails({ selectedPlaylist }) {
         );
         setPlaylist(response.data);
       } catch (error) {
-      
+
       }
     };
 
     getPlaylistById(id);
-  }, [id, access_token]);
+  }, [ id, access_token ]);
 
-  //2. anadir los tracks ao clicar en +
+
   const handleSongSelected = async (track) => {
     const url = `https://api.spotify.com/v1/playlists/${id}/tracks`;
     const requestBody = {
-      uris: [`${track.uri}`],
+      uris: [ `${track.uri}` ],
       position: 0,
     };
 
@@ -50,11 +49,10 @@ function PlaylistDetails({ selectedPlaylist }) {
 
       setNewSong(response.data);
     } catch (error) {
-     
+
     }
   };
 
-  //3. llamada a api para quitar la cancion
   const removeSelectedSong = async (track) => {
     const url = `https://api.spotify.com/v1/playlists/${id}/tracks`;
 
@@ -76,13 +74,13 @@ function PlaylistDetails({ selectedPlaylist }) {
         data: requestBody,
       });
 
-     
+
     } catch (error) {
-    
+
     }
   };
 
-  
+
   const handleRemoveSong = async (track) => {
     await removeSelectedSong(track);
     const updatedPlaylist = { ...playlist };
@@ -102,9 +100,9 @@ function PlaylistDetails({ selectedPlaylist }) {
     return (
       <>
         <div className="header-playlist">
-          {playlist.images[0] ? (
+          {playlist.images[ 0 ] ? (
             <img
-              src={playlist.images[0].url}
+              src={playlist.images[ 0 ].url}
               alt={playlist.name}
               className="track-card-image"
             />
@@ -120,12 +118,12 @@ function PlaylistDetails({ selectedPlaylist }) {
         </div>
         <div className="content-playlist">
           <ul className="track-list">
-            <li className="track-item hide" style={{ fontStyle: "italic", justifyContent: "space-around"}}>
+            <li className="track-item hide" style={{ fontStyle: "italic", justifyContent: "space-around" }}>
               <div className="album-image">
                 <div> </div>
               </div>
 
-              <p className="track-name" style={{textAlign:"center"}}>        
+              <p className="track-name" style={{ textAlign: "center" }}>
               </p>
               <div>
                 <p className="track-name track-name-album">Album</p>
@@ -137,45 +135,45 @@ function PlaylistDetails({ selectedPlaylist }) {
 
             {playlist.tracks.items
               ? playlist.tracks.items.map((track, index) => {
-                  return (
-                    <li key={track.track.id} className="track-item ">
-                      {track.track.album ? (
-                        <Link to={`/track/${track.track.id}`}>
-                          <div className="album-image">
-                            <span>{index + 1}. </span>
-                            <img
-                              className="track-card-image"
-                              src={track.track.album.images[0].url}
-                              alt="cover album"
-                            />
-                          </div>
-                        </Link>
-                      ) : (
-                        <Link to={`/track/${track.track.id}`}>
-                          <span className="material-symbols-outlined">
-                            music_note
-                          </span>
-                        </Link>
-                      )}
+                return (
+                  <li key={track.track.id} className="track-item ">
+                    {track.track.album ? (
+                      <Link to={`/track/${track.track.id}`}>
+                        <div className="album-image">
+                          <span>{index + 1}. </span>
+                          <img
+                            className="track-card-image"
+                            src={track.track.album.images[ 0 ].url}
+                            alt="cover album"
+                          />
+                        </div>
+                      </Link>
+                    ) : (
+                      <Link to={`/track/${track.track.id}`}>
+                        <span className="material-symbols-outlined">
+                          music_note
+                        </span>
+                      </Link>
+                    )}
 
-                      <p className="track-name-playlist">{track.track.name}</p>
-                      <div>
-                        <p className="track-name-playlist track-name-album">
-                          {track.track.album.name}
-                        </p>
-                      </div>
+                    <p className="track-name-playlist">{track.track.name}</p>
+                    <div>
+                      <p className="track-name-playlist track-name-album">
+                        {track.track.album.name}
+                      </p>
+                    </div>
 
-                      <div className="btn-div">
-                        <button
-                          className="remove-btn"
-                          onClick={() => handleRemoveSong(track)}
-                        >
-                          Remove
-                        </button>
-                      </div>
-                    </li>
-                  );
-                })
+                    <div className="btn-div">
+                      <button
+                        className="remove-btn"
+                        onClick={() => handleRemoveSong(track)}
+                      >
+                        Remove
+                      </button>
+                    </div>
+                  </li>
+                );
+              })
               : null}
           </ul>
           <SearchMusicPlaylist

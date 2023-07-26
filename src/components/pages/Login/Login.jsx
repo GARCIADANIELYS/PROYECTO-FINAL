@@ -10,8 +10,6 @@ const baseUrl = `https://accounts.spotify.com/authorize?client_id=${Global.clien
 const Login = () => {
   const location = useLocation();
 
-
-
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
     const spotyCode = urlParams.get("code");
@@ -35,10 +33,9 @@ const Login = () => {
         .then((res) => {
           localStorage.setItem("access_token", res.data.access_token);
           localStorage.setItem("refresh_token", res.data.refresh_token);
-      
+
           window.location.href = "/"
-                   
-         
+
         })
     } catch (error) {
     }
@@ -46,8 +43,8 @@ const Login = () => {
 
   function login() {
     window.location.replace(baseUrl);
-  
-  
+
+
   }
 
   return (
@@ -56,7 +53,7 @@ const Login = () => {
         <div className="box-login">
           <h1 className="subtitle">Login</h1>
           <p>Inicia sesión con tu cuenta de Spotify para acceder</p>
-          <button onClick={login}  className="btnLogin">
+          <button onClick={login} className="btnLogin">
             INICIAR SESION
           </button>
         </div>

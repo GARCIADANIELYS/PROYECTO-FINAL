@@ -6,10 +6,7 @@ import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
 
 const Details = () => {
   const { apiResponse, artistAlbums, topTracks } = useContext(ApiContext);
-
-
   const { id } = useParams();
-
   const [ visibleAlbums, setVisibleAlbums ] = useState(5);
 
 
@@ -46,19 +43,19 @@ const Details = () => {
 
               {topTracks.slice(0, 6).map((track, index) => (
                 <li className="li-container-tracks" key={track.id}>
-                  
-                    <div className="id-tracks">
-                      <p>{`0${index + 1} `}</p>
-                    </div>
-                    <div className="tracks-artist-data">
+
+                  <div className="id-tracks">
+                    <p>{`0${index + 1} `}</p>
+                  </div>
+                  <div className="tracks-artist-data">
                     <Link className="link-tracks-artist" to={`/track/${track.id}`}>
                       <p className="name-class">{` ${track.name}`}</p>
-                      </Link>
-                      <div className="album-times-container">
-                        <p className="name-tracks"> {track.album.name}</p>
-                      </div>
+                    </Link>
+                    <div className="album-times-container">
+                      <p className="name-tracks"> {track.album.name}</p>
                     </div>
-                  
+                  </div>
+
                 </li>
               ))}
 

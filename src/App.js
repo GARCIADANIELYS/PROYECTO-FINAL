@@ -17,10 +17,10 @@ import "./App.css";
 import AuthRouthe from "./components/AuthRouth/AuthRouthe";
 
 function App() {
-  const [token, setToken] = useState(
+  const [ token, setToken ] = useState(
     window.localStorage.access_token ? window.localStorage.access_token : null
   );
-  const [refresh, setRefresh] = useState(
+  const [ refresh, setRefresh ] = useState(
     window.localStorage.refresh_token ? window.localStorage.refresh_token : null
   );
 

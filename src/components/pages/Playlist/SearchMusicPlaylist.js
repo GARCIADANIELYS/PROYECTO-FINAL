@@ -15,56 +15,51 @@ function SearchMusicPlaylist({ handleSongSelected, handleUpdateSong }) {
 
   const filteredSong = apiResponse?.tracks?.items?.filter((track) =>
     track.name.toLowerCase().includes(search.toLowerCase())
-   
+
   );
- 
+
 
   const handleTrackSelected = (track) => {
     setTrack(track);
     handleSongSelected(track);
     handleUpdateSong(track);
-     
-    
-
   };
-console.log(search)
- 
- 
-    return (
-      <>
-    <Searcher type={"track"} />
-    <div className="addSongs">
-      <h1>Add a song</h1>
-      {apiResponse && apiResponse.tracks && apiResponse.tracks.items && (
-        <ul className="song-list-container">
-          {filteredSong?.map((song) => {
-            return (
-              <li key={song.id} className="song-list-item">
-                <Link to={`/track/${song.id}`}>
-                  <img src={song.album.images[0].url} alt="song cover" className="list-img" />
-                </Link>
-                <div className="song-name">{song.name}</div>
-                <div className="song-artist">
-                  {song.artists.map((artist) => {
-                    return <span key={artist.id}>{artist.name}</span>;
-                  })}
-                </div>
-                <div className="btn-div">
-                  <button
-                    className="song-list-btn"
-                    onClick={() => handleTrackSelected(song)}
-                  >
-                    Add
-                  </button>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
-      )}
-    </div>
-  </>
-);
-        }
+
+  return (
+    <>
+      <Searcher type={"track"} />
+      <div className="addSongs">
+        <h1>Add a song</h1>
+        {apiResponse && apiResponse.tracks && apiResponse.tracks.items && (
+          <ul className="song-list-container">
+            {filteredSong?.map((song) => {
+              return (
+                <li key={song.id} className="song-list-item">
+                  <Link to={`/track/${song.id}`}>
+                    <img src={song.album.images[ 0 ].url} alt="song cover" className="list-img" />
+                  </Link>
+                  <div className="song-name">{song.name}</div>
+                  <div className="song-artist">
+                    {song.artists.map((artist) => {
+                      return <span key={artist.id}>{artist.name}</span>;
+                    })}
+                  </div>
+                  <div className="btn-div">
+                    <button
+                      className="song-list-btn"
+                      onClick={() => handleTrackSelected(song)}
+                    >
+                      Add
+                    </button>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        )}
+      </div>
+    </>
+  );
+}
 
 export default SearchMusicPlaylist;

@@ -11,7 +11,7 @@ const TrackDetail = () => {
 
     const navigate = useNavigate();
 
-    const redirectToSearch= () => {
+    const redirectToSearch = () => {
         navigate("/search");
     }
 

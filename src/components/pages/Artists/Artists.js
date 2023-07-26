@@ -21,7 +21,6 @@ const Artists = () => {
         {filteredArtists?.map((artist) => (
           <Link to={`/artists/${artist.id}`} key={artist.id} className="artist-card-link">
             <div className="artist-card">
-             
               {artist.images && artist.images.length > 0 && (
                 <img
                   src={artist.images[ 0 ].url}

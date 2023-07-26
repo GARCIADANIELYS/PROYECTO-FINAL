@@ -15,14 +15,12 @@ const Searcher = ({ type }) => {
 
   const handleClick = () => {
     setType(type)
-    //setSearch(type);
     setSearch(searchTerm);
   };
 
   const handleKeyPress = (ev) => {
     if (ev.key === "Enter") {
       setType(type);
-      //setSearch(type);
       setSearch(searchTerm);
     }
   };
@@ -31,7 +29,7 @@ const Searcher = ({ type }) => {
     <div className="searcher">
       <button className="searcher-btn" onClick={handleClick}>
         <BsSearch className="search-icon" />
-        <img src={require("../../../assets/icon-search.png")} alt="Buscador" />
+        <img src={require("../../../assets/icon-search.png")} alt="Searcher" />
       </button>
       <input
         className="searcher-input"

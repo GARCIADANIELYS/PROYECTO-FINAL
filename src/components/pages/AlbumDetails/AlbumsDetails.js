@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const AlbumsDetails = () => {
   const { albumId } = useParams();
-  const [albumDetails, setAlbumDetails] = useState(null);
+  const [ albumDetails, setAlbumDetails ] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,12 +23,12 @@ const AlbumsDetails = () => {
 
         setAlbumDetails(data);
       } catch (error) {
-        
+
       }
     };
 
     fetchData();
-  }, [albumId]);
+  }, [ albumId ]);
 
   if (!albumDetails) {
     return (
@@ -44,7 +44,7 @@ const AlbumsDetails = () => {
     <div className="center">
       <div className="img-album-details-container">
         <div className="album-img">
-          <img src={images[0].url} alt={name} />
+          <img src={images[ 0 ].url} alt={name} />
         </div>
 
         <div className="data-album">
@@ -58,9 +58,9 @@ const AlbumsDetails = () => {
           <div className="tracks-data" key={track.id}>
             <div className="track-number">{track.track_number}</div>
             <div className="track-info">
-            <Link className="link-tracks-artist" to={`/track/${track.id}`}>
-              <p className="title-track-album">{track.name}</p>
-              <p className="name-artist-album">{track.artists[0].name}</p>
+              <Link className="link-tracks-artist" to={`/track/${track.id}`}>
+                <p className="title-track-album">{track.name}</p>
+                <p className="name-artist-album">{track.artists[ 0 ].name}</p>
               </Link>
             </div>
             <div className="track-time">{msToTime(track.duration_ms)}</div>
