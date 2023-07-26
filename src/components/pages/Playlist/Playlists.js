@@ -12,7 +12,6 @@ function Playlists() {
   const [ selectedPlaylist, setSelectedPlaylist ] = useState(null);
   const [ showForm, setShowForm ] = useState(false);
 
-
   useEffect(() => {
     const getPlaylist = async () => {
       try {
@@ -36,17 +35,13 @@ function Playlists() {
     getPlaylist();
   }, [ access_token ]);
 
-
   const handlePlaylistClick = (playlist) => {
     setSelectedPlaylist(playlist);
-
   };
-
 
   const showPlaylistCreator = () => {
     setShowForm(!showForm);
   };
-
 
   const handlePlaylistCreated = (newPlaylist) => {
     setPlaylist((prevPlaylist) => {
@@ -88,7 +83,6 @@ function Playlists() {
             {showForm && (
               <PlaylistCreator onPlaylistCreated={handlePlaylistCreated} />
             )}
-
           </section>
           <section className="playlist-details">
             {selectedPlaylist && (

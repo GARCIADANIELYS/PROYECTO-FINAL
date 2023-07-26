@@ -14,7 +14,6 @@ function PlaylistCreator({ onPlaylistCreated }) {
     setEndpoint(profile_URL);
   }, [ profile_URL ]);
 
-
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
@@ -22,9 +21,9 @@ function PlaylistCreator({ onPlaylistCreated }) {
   const createPlaylist = async () => {
     const url = `https://api.spotify.com/v1/users/${user_id}/playlists`;
     const requestBody = {
-      "name": inputValue,
-      "description": "New playlist description",
-      "public": false
+      name: inputValue,
+      description: "New playlist description",
+      public: false,
     };
 
     try {
@@ -33,7 +32,6 @@ function PlaylistCreator({ onPlaylistCreated }) {
           Authorization: "Bearer " + access_token,
           "Content-Type": "application/json",
         },
-
       });
       setCreatedPlaylist(response.data);
       setInputValue("");

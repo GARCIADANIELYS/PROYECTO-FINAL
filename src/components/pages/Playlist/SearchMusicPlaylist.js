@@ -6,12 +6,11 @@ import { Link } from "react-router-dom";
 function SearchMusicPlaylist({ handleSongSelected, handleUpdateSong }) {
   const { apiResponse, setEndpoint, search } = useContext(ApiContext);
   const search_URL = `https://api.spotify.com/v1/search?q=${search}&type=track`;
-  const [ track, setTrack ] = useState("");
-
+  const [track, setTrack] = useState("");
 
   useEffect(() => {
     setEndpoint(search_URL);
-  }, [ search_URL ]);
+  }, [search_URL]);
 
   const filteredSong = apiResponse?.tracks?.items?.filter((track) =>
     track.name.toLowerCase().includes(search.toLowerCase())
@@ -36,7 +35,11 @@ function SearchMusicPlaylist({ handleSongSelected, handleUpdateSong }) {
               return (
                 <li key={song.id} className="song-list-item">
                   <Link to={`/track/${song.id}`}>
-                    <img src={song.album.images[ 0 ].url} alt="song cover" className="list-img" />
+                    <img
+                      src={song.album.images[0].url}
+                      alt="song cover"
+                      className="list-img"
+                    />
                   </Link>
                   <div className="song-name">{song.name}</div>
                   <div className="song-artist">
