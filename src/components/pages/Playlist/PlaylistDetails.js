@@ -82,7 +82,7 @@ function PlaylistDetails({ selectedPlaylist }) {
     }
   };
 
-  //4. funcion para actulizar la playlist despues de quitar la cancion
+  
   const handleRemoveSong = async (track) => {
     await removeSelectedSong(track);
     const updatedPlaylist = { ...playlist };
@@ -158,9 +158,9 @@ function PlaylistDetails({ selectedPlaylist }) {
                         </Link>
                       )}
 
-                      <p className="track-name">{track.track.name}</p>
+                      <p className="track-name-playlist">{track.track.name}</p>
                       <div>
-                        <p className="track-name track-name-album">
+                        <p className="track-name-playlist track-name-album">
                           {track.track.album.name}
                         </p>
                       </div>

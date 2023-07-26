@@ -148,17 +148,9 @@
   margin-right: 10px;
 }
 
-.song-list-btn {
-  margin-right: 10px;
-  color: black;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
-  cursor: pointer;
-}
 
 .song-list-btn:hover {
-  background-color: #282828;
+ text-decoration: underline;
 }
 
 .track-list {
@@ -193,12 +185,14 @@
   font-size: 12px;
 }
 
-.track-name {
-  margin: 0;
-  width: 20%;
+.track-name-playlist,
+.track-name-album {
+  margin: 5px;
+  text-align: left; 
+  width: 200px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 671px) {
   .track-list {
     justify-content: center;
   }
@@ -211,20 +205,34 @@
   
   .btn-div {
     margin-top: 10px;
-    margin-left: 10px;
+    
   }
 
   .album-image {
-    width: 50%;
+    width: 80%; 
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    margin-bottom: 10px;
   }
-  .track-name{
-    margin-left: 20px;
-  }
+ 
 
   .track-name-album .hide{
     display: none;
   }
 
+  .track-item .track-card-image {
+    margin: 0 auto;
+  }
+
+.track-name-playlist,
+.track-name-album {
+  margin-left: 10px;
+}
+
+.album-image span{
+  display: none;
+}
   
 }
 
@@ -233,7 +241,7 @@
     flex-direction: column;
   }
 
-  .hide{
+   .hide{
     display: none;
   }
   .header-playlist{

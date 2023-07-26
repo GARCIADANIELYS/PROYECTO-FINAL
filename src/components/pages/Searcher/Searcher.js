@@ -1,39 +1,36 @@
 import { useContext, useState } from "react";
 import { ApiContext } from "../../../services/Api";
 import "./Searcher.css";
-import { BsSearch } from 'react-icons/bs';
+import { BsSearch } from "react-icons/bs";
 
-const Searcher = ({ type }) => { 
-
- 
+const Searcher = ({ type }) => {
   const { setSearch, setType } = useContext(ApiContext);
 
- 
-  const [ searchTerm, setSearchTerm ] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleInputChange = (ev) => {
     const inputValue = ev.target.value;
     setSearchTerm(inputValue);
   };
 
-  
   const handleClick = () => {
     setSearch(type);
     setSearch(searchTerm);
-  }
+  };
 
   const handleKeyPress = (ev) => {
     if (ev.key === "Enter") {
       setSearch(type);
       setSearch(searchTerm);
     }
-  }
+  };
 
   return (
     <div className="searcher">
-       <button 
-      className="searcher-btn"
-      onClick={handleClick}><BsSearch className="search-icon" /><img src= {require("../../../assets/icon-search.png")} alt="Buscador" /></button>
+      <button className="searcher-btn" onClick={handleClick}>
+        <BsSearch className="search-icon" />
+        <img src={require("../../../assets/icon-search.png")} alt="Buscador" />
+      </button>
       <input
         className="searcher-input"
         type="text"
@@ -42,8 +39,6 @@ const Searcher = ({ type }) => {
         onChange={handleInputChange}
         onKeyDown={handleKeyPress}
       />
-   
-      
     </div>
   );
 };
