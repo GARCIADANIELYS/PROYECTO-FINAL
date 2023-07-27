@@ -27,10 +27,6 @@ const Header = () => {
           src={require("../../../assets/logo-musify.png")}
           alt="logo-musify"
         />
-
-        <li className="pages">
-          <Link to="/login">Login</Link>
-        </li>
         <div className="li-list">
           <li className="pages">
             <img

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const SavedTracks = () => {
   const [ savedTracks, setSavedTracks ] = useState([]);
-  const [ visibleTracks, setVisibleTracks ] = useState(5);
+  const [ visibleTracks, setVisibleTracks ] = useState(4);
   const [ totalSavedTracks, setTotalSavedTracks ] = useState(0);
   const { access_token } = useContext(ApiContext)
 

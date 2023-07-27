@@ -10,7 +10,7 @@ import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
 const Recommendations = () => {
   const { recApiResponse } = useContext(ApiContext);
   const { seeds } = recApiResponse;
-  const [ visibleTracks, setVisibleTracks ] = useState(5);
+  const [ visibleTracks, setVisibleTracks ] = useState(4);
 
   if (recApiResponse && recApiResponse.tracks && recApiResponse.seeds) {
     const allTracks = recApiResponse.tracks;

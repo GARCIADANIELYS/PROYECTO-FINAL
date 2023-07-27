@@ -54,7 +54,7 @@ const AlbumsDetails = () => {
         </div>
       </div>
       <div className="tracks-album-container">
-        {tracks.items.map((track, index) => (
+        {tracks.items.map((track) => (
           <div className="tracks-data" key={track.id}>
             <div className="track-number">{track.track_number}</div>
             <div className="track-info">

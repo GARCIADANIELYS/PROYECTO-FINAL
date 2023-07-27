@@ -89,7 +89,7 @@ const Details = () => {
               <div className="albums-artists-conainer" key={album.id}>
                 <Link to={`/album/${album.id}`}>
                   <img
-                    className="img-album-artist track-card-image"
+                    className="track-card-image"
                     src={album.images[ 0 ].url}
                     alt={album.name}
                   />

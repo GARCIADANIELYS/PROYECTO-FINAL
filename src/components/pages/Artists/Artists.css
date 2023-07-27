@@ -11,10 +11,8 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: space-between;
 }
-
-
 
 .artist-card-link {
     width: 30%;
