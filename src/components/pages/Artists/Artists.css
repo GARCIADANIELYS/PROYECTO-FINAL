@@ -1,6 +1,6 @@
 .artists {
-    background-color: black;
-    color: white;
+    background-color: whitesmoke;
+    color: black;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -37,13 +37,14 @@
 }
 
 .name {
+    color: rgb(84, 86, 145);
     letter-spacing: 3px;
     font-weight: 400;
     margin: 3px;
 }
 
 .genres {
-    color: rgb(96, 97, 119);
+    color: rgb(124, 125, 153);
     margin: 2px;
     text-align: center;
 }

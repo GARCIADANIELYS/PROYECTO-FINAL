@@ -16,13 +16,19 @@
 }
 
 .name-artist{
+    color: black;
+    font-weight: 400;
     margin: 20px 0px 0 0;
     font-size: 2.5rem;
 }
+
+.name-tracks{
+    color: rgb(124, 125, 153);
+}
+
 .genres-container{
     margin: 0;
-    color: rgb(136, 136, 136);
-   
+    color: rgba(90, 78, 122, 0.68);
     font-size: 1.8rem;
 }
 .genres-container::first-letter{
@@ -44,11 +50,12 @@
     font-size: 12px;
 }
 .id-tracks{
-    background-color:rgb(211, 211, 227);
+    background-color:rgb(185, 185, 223);
     padding: 15px;
 }
 .name-class{
-    font-weight: 600;
+    color: black;
+    font-weight: 500;
 }
 .tracks-artist-data{
     margin-left: 10px;
