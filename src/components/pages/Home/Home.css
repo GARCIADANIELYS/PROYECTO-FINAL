@@ -1,13 +1,13 @@
 .home {
-    background-color: black;
-    color: white;
+    background-color: whitesmoke;
+    color: black;
     padding-top: 30px;
 }
 
 .title {
     letter-spacing: 3px;
     font-weight: 400;
-    border-bottom: 1px solid rgba(147, 151, 208, 0.885);
+    border-bottom: 1px solid rgba(129, 133, 198, 0.885);
     width: 40%;
     padding-bottom: 10px;
 }
@@ -19,9 +19,9 @@
 }
 
 .btn-div button {
-    background-color: black;
+    background-color: whitesmoke;
     right: auto;
-    color: rgba(168, 170, 207, 0.885);
+    color: rgba(127, 130, 201, 0.885);
     border-radius: 20px;
     border: none;
     padding: 2px 7px;
@@ -61,7 +61,7 @@ p.track-artist-name {
     font-weight: 300;
     margin: 0;
     letter-spacing: 1px;
-    color: rgba(255, 255, 255, 0.869);
+    color: rgba(137, 139, 197, 0.885);
     text-transform: uppercase;
 }
 

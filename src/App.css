@@ -8,10 +8,10 @@ body{
 .container-master{
     display: flex;
     flex-direction: row;
-    background-color: black;
+    background-color: whitesmoke;
 }
 .container-content-master{
-    background-color: black;
+    background-color: whitesmoke;
     width: 340%;
 }
 @media screen and (max-width: 1080px){

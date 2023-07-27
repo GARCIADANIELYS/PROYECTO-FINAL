@@ -1,9 +1,8 @@
 import axios from "axios";
 import React, { useEffect } from "react";
-import { useLocation, useNavigate, useContext } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Global from "../../core/Global/global";
 import "../Login/login.css";
-import { TokenContext } from "../../../context/tokenContext";
 
 const baseUrl = `https://accounts.spotify.com/authorize?client_id=${Global.client_id}&response_type=code&redirect_uri=${Global.redirect_uri}&scope=${Global.scopes}`;
 
