@@ -10,7 +10,7 @@
 }
 
 .header-master {
-  background-color: #1a1a1a;
+  background-color: #180e0e;
   width: 80%;
   display: flex;
   align-items: center;
@@ -40,6 +40,10 @@ li a {
 .pages {
   margin-top: 30px;
   text-align: center;
+}
+
+.nav-bottom {
+  align-self: flex-end;
 }
 
 .menu-icon {
