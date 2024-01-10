@@ -28,7 +28,9 @@ const Header = () => {
           alt="logo-musify"
         />
 
-
+        <li className="pages">
+          <Link to="/login">Login</Link>
+        </li>
         <div className="li-list">
           <li className="pages">
             <img
@@ -54,7 +56,7 @@ const Header = () => {
             <Link to="/playlists">Playlists</Link>
           </li>
           <li className="pages">
-            <Link to="/logout" className=" nav-bottom" onClick={handleLogout}>
+            <Link to="/logout" className="pages" onClick={handleLogout}>
               Logout
             </Link>
           </li>
